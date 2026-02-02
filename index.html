@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="GLIA — una experiencia educativa que se adapta a tu estado mental: calma, foco, potencia o exploración." />
-  <title>GLIA · Tu mente, a tu ritmo</title>
+  <meta name="description" content="GLIA — Aprender no debería ser una prueba de resistencia. Sostén educativo para alumnos, docentes y familias." />
+  <title>GLIA · Aprender no debería ser una prueba de resistencia</title>
 
   <style>
     :root {
-      /* RGB-only palette for maximum compatibility */
       --bg: rgb(10, 12, 14);
       --bg2: rgb(14, 16, 19);
       --card: rgb(20, 22, 26);
@@ -73,19 +72,10 @@
       display: flex; align-items: center; gap: 10px;
       font-weight: 700; letter-spacing: .4px;
     }
-    .logo{
-  width: 50px !important;
-  height: 50px !important;
-  display: inline-block !important;
-  vertical-align: middle;
-
-  background: rgba(255,0,0,0.2); /* DEBUG */
-}
-
-    .dot {
-      width: 12px; height: 12px; border-radius: 999px;
-      background: linear-gradient(135deg, var(--glia-mint), var(--glia-cyan));
-      box-shadow: 0 0 0 6px rgba(167,226,181,.10);
+    .logo {
+      width: 40px; height: 40px; 
+      border-radius: 10px;
+      object-fit: cover;
     }
     nav {
       display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
@@ -95,9 +85,7 @@
     nav a { padding: 8px 10px; border-radius: 999px; }
     nav a:hover { background: rgba(255,255,255,.06); color: var(--text); }
 
-    .cta {
-      display:flex; align-items:center; gap:10px;
-    }
+    .cta { display:flex; align-items:center; gap:10px; }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -123,13 +111,11 @@
     .btn.primary:hover { border-color: rgba(167,226,181,.55); }
 
     /* Hero */
-    .hero {
-      padding: 44px 0 28px;
-    }
+    .hero { padding: 44px 0 28px; }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 26px;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
       align-items: center;
     }
     .kicker {
@@ -151,222 +137,248 @@
       letter-spacing: .3px;
     }
     h1 {
-      margin: 16px 0 10px;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.05;
+      margin: 16px 0 16px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.08;
       letter-spacing: -0.6px;
     }
     .lead {
       color: var(--muted);
       font-size: 18px;
-      line-height: 1.55;
-      margin: 0 0 18px;
-      max-width: 56ch;
+      line-height: 1.6;
+      margin: 0 0 24px;
+      max-width: 52ch;
     }
-    .hero-actions {
-      display:flex; gap: 10px; flex-wrap: wrap; align-items:center;
-      margin: 18px 0 10px;
-    }
-    .micro {
-      color: rgba(170,176,186,.9);
-      font-size: 13px;
-      margin-top: 10px;
-    }
+    .hero-actions { display:flex; gap: 12px; flex-wrap: wrap; align-items:center; margin: 24px 0 12px; }
 
-    .phone {
-      border-radius: 34px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.09);
-      box-shadow: var(--shadow);
-      padding: 12px;
-      position: relative;
+    .hero-image {
+      border-radius: 24px;
       overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.08);
     }
-    .phone::before {
-      content:"";
-      position:absolute; inset:-100px -80px auto -80px;
-      height: 240px;
-      background: radial-gradient(circle at 30% 30%, rgba(167,226,181,.25), rgba(10,12,14,0) 60%);
-      pointer-events:none;
-    }
-    .shot {
+    .hero-image img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      border-radius: 26px;
+      filter: brightness(0.9) contrast(1.05);
+    }
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,12,14,0.3), rgba(10,12,14,0.1));
+      pointer-events: none;
     }
 
-    /* Story sections */
-    section { padding: 38px 0; }
+    /* Sección Día Normal */
+    .day-section { padding: 60px 0 40px; }
     .section-title {
-      display:flex; align-items:flex-end; justify-content:space-between; gap: 16px; flex-wrap: wrap;
-      margin-bottom: 16px;
+      display:flex; flex-direction: column; gap: 12px;
+      margin-bottom: 32px;
     }
     .section-title h2 {
       margin: 0;
-      font-size: clamp(24px, 3vw, 34px);
+      font-size: clamp(26px, 3.5vw, 36px);
       letter-spacing: -0.3px;
+      line-height: 1.2;
     }
     .section-title p {
       margin: 0;
       color: var(--muted);
-      max-width: 62ch;
-      line-height: 1.55;
+      max-width: 60ch;
+      line-height: 1.6;
+      font-size: 17px;
     }
 
-    .grid-2 {
+    .roles-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-    .card {
+    .role-card {
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      box-shadow: 0 10px 40px rgba(0,0,0,.25);
-      overflow: hidden;
-    }
-    .card .pad { padding: var(--pad2); }
-    .tag {
-      display:inline-flex; align-items:center; gap:8px;
-      font-size: 12px;
-      letter-spacing: .35px;
-      text-transform: uppercase;
-      color: rgba(245,246,248,.85);
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-    .tag .b {
-      width: 8px; height: 8px; border-radius: 999px;
-      background: var(--glia-mint);
-      box-shadow: 0 0 0 6px rgba(167,226,181,.12);
-    }
-    .tag.warn .b { background: var(--warn); box-shadow: 0 0 0 6px rgba(214,164,55,.14); }
-    .tag.danger .b { background: var(--danger); box-shadow: 0 0 0 6px rgba(225,88,88,.12); }
-    .tag.lilac .b { background: var(--glia-lilac); box-shadow: 0 0 0 6px rgba(182,160,255,.12); }
-
-    .card h3 {
-      margin: 14px 0 8px;
-      font-size: 20px;
-      letter-spacing: -0.2px;
-    }
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .shot-grid {
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      padding: 12px;
-      background: rgba(255,255,255,.03);
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-    .shot-mini {
-      width: 100%;
-      height: auto;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.25);
-      display:block;
-    }
-
-    /* Features row */
-    .features {
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .feat {
-      padding: 16px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.04);
-    }
-    .feat .t {
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .feat .d {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    /* Waitlist */
-    .wait {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding: 28px;
       position: relative;
       overflow: hidden;
     }
-    .wait::before {
-      content:"";
-      position:absolute; inset:-120px -120px auto -120px;
-      height: 260px;
-      background: radial-gradient(circle at 30% 30%, rgba(124,188,212,.18), rgba(10,12,14,0) 60%);
-      pointer-events:none;
+    .role-card::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%; right: -50%; bottom: -50%;
+      background: radial-gradient(circle at 50% 0%, rgba(167,226,181,.08), transparent 70%);
+      opacity: 0.5;
+      pointer-events: none;
     }
-    form {
-      display:flex; gap: 10px; flex-wrap: wrap;
-      margin-top: 14px;
+    .role-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+      border: 1px solid rgba(255,255,255,.08);
     }
-    input[type="email"] {
-      flex: 1 1 260px;
-      min-width: 220px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      outline: none;
+    .role-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
     }
-    input[type="email"]::placeholder { color: rgba(170,176,186,.65); }
-    .note {
-      margin-top: 10px;
-      color: rgba(170,176,186,.88);
+    .role-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    /* Sección GLIA Sostiene */
+    .sostiene-section {
+      padding: 40px 0;
+      position: relative;
+    }
+    .sostiene-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(167,226,181,.3), transparent);
+    }
+    .sostiene-content {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    .sostiene-content h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      margin: 0 0 16px;
+      letter-spacing: -0.3px;
+    }
+    .sostiene-content > p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Sección Situaciones (Videos) */
+    .situaciones-section { padding: 40px 0 60px; }
+    .situaciones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .sit-card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.08);
+      background: var(--card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .video-container {
+      aspect-ratio: 4/3;
+      background: var(--bg2);
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .video-container video,
+    .video-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--soft);
       font-size: 13px;
-      line-height: 1.45;
     }
-    .toast {
-      margin-top: 12px;
-      display:none;
-      padding: 12px 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(167,226,181,.25);
-      background: rgba(167,226,181,.10);
-      color: rgba(245,246,248,.95);
+    .play-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(167,226,181,.15);
+      border: 1px solid rgba(167,226,181,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      color: var(--glia-mint);
     }
+    .sit-card .pad { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .sit-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      letter-spacing: -0.2px;
+    }
+    .sit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    /* Cierre Final */
+    .cierre-section {
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cierre-section::before {
+      content: "";
+      position: absolute;
+      inset: -100px -200px auto -200px;
+      height: 400px;
+      background: radial-gradient(circle at 50% 30%, rgba(167,226,181,.12), transparent 60%);
+      pointer-events: none;
+    }
+    .cierre-content {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cierre-content h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+      margin: 0 0 20px;
+      letter-spacing: -0.5px;
+    }
+    .cierre-content .subtitle {
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.5;
+      margin: 0 0 32px;
+    }
+    .cierre-content .btn { padding: 14px 28px; font-size: 16px; }
 
     /* Footer */
     footer {
-      padding: 28px 0 44px;
+      padding: 40px 0;
       color: rgba(170,176,186,.9);
       border-top: 1px solid rgba(255,255,255,.06);
+      text-align: center;
+      font-size: 14px;
     }
-    .foot {
-      display:flex; justify-content:space-between; gap: 14px; flex-wrap: wrap;
-      font-size: 13px;
-    }
-    .foot a { color: rgba(170,176,186,.9); }
-    .foot a:hover { color: var(--text); }
 
     /* Responsive */
     @media (max-width: 980px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .features { grid-template-columns: 1fr 1fr; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .roles-grid { grid-template-columns: 1fr; }
+      .situaciones-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
       nav { display:none; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .features { grid-template-columns: 1fr; }
-      .shot-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
     }
 
-    /* Subtle motion preferences */
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior: auto !important; transition: none !important; }
     }
@@ -378,238 +390,185 @@
     <div class="wrap">
       <div class="row">
         <div class="brand">
-          <img src="./assets/logo-glia.png" alt="Logo" class="logo" />
+          <img src="./assets/logo-glia.png" alt="GLIA" class="logo" onerror="this.style.display='none'; this.nextElementSibling.style.marginLeft='0'" />
           <span>GLIA</span>
         </div>
         <nav aria-label="Secciones">
-          <a href="#historia">La historia</a>
-          <a href="#momentos">Momentos</a>
-          <a href="#metodo">Método</a>
-          <a href="#espera">Lista de espera</a>
+          <a href="#dia-normal">El problema</a>
+          <a href="#sostiene">La solución</a>
+          <a href="#situaciones">Cómo funciona</a>
         </nav>
         <div class="cta">
-          <a class="btn" href="#historia">Ver</a>
-          <a class="btn primary" href="#espera">Lista de espera</a>
+          <a class="btn primary" href="#cierre">Quiero saber más</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap">
       <div class="hero-grid">
         <div>
           <div class="kicker">
             <span class="pill">Neuroinclusiva</span>
-            <span>Tu mente no funciona igual cada día. GLIA tampoco.</span>
+            <span>Educación que respira</span>
           </div>
 
-          <h1>Un viaje por tus momentos.<br/>Sin exigencias. Con estructura.</h1>
+          <h1>Aprender no debería ser una prueba de resistencia.</h1>
 
           <p class="lead">
-            GLIA es una experiencia educativa que se adapta a tu estado mental: <b>calma</b>, <b>foco</b>, <b>potencia</b> o <b>exploración</b>.
-            Cuando hay bloqueo, no te empuja: te acompaña paso a paso.
+            Alumnos agotados. Docentes saturados. Familias desbordadas.<br/>
+            <strong>GLIA sostiene cuando el sistema educativo no llega.</strong>
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="#espera">Quiero probar GLIA</a>
-            <a class="btn" href="#momentos">Ver los 4 momentos</a>
-          </div>
-
-          <div class="micro">
-            Diseñada para estudiantes neurodivergentes — y usable por cualquiera.
+            <a class="btn primary" href="#situaciones">Ver cómo funciona GLIA</a>
+            <a class="btn" href="#dia-normal">Ver el problema</a>
           </div>
         </div>
 
-        <div class="phone" aria-label="Vista previa de la app">
-          <img class="shot" src="assets/glia-welcome.png" alt="Pantalla de bienvenida de GLIA" />
+        <div class="hero-image">
+          <!-- Imagen: Escritorio al atardecer, cuadernos abiertos, luz cálida -->
+          <img src="assets/hero-escritorio-tarde.jpg" alt="Escritorio con cuadernos al atardecer, luz cálida de lámpara" />
         </div>
       </div>
     </div>
   </header>
 
-  <section id="historia">
+  <!-- UN DÍA NORMAL -->
+  <section id="dia-normal" class="day-section">
     <div class="wrap">
       <div class="section-title">
-        <h2>La historia en 30 segundos</h2>
-        <p>
-          No es falta de capacidad. Es falta de ajuste.
-          GLIA empieza preguntando “¿cómo estás hoy?” y adapta todo lo demás a partir de ahí.
-        </p>
+        <h2>Un día normal.</h2>
+        <p>Tres perspectivas, un mismo cansancio. El sistema educativo actual pide resistencia a quienes ya están al límite.</p>
       </div>
 
-      <div class="features">
-        <div class="feat">
-          <div class="t">Estado primero</div>
-          <div class="d">Calma, foco, potencia o exploración. Sin juicios.</div>
-        </div>
-        <div class="feat">
-          <div class="t">Pasos accionables</div>
-          <div class="d">De “tarea gigante” a “primer paso” en segundos.</div>
-        </div>
-        <div class="feat">
-          <div class="t">Ritmo y descanso</div>
-          <div class="d">Foco con pausas reales: agua, baño, recuperar.</div>
-        </div>
-        <div class="feat">
-          <div class="t">IA responsable</div>
-          <div class="d">Acompaña y enseña. No te sustituye.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="momentos">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Cuatro momentos. Una sola app.</h2>
-        <p>
-          GLIA no te pide que seas otra persona. Solo te ofrece el entorno que necesitas ahora.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <article class="card">
-          <div class="pad">
-            <span class="tag"><span class="b"></span>Momento calma</span>
-            <h3>Cuando estás saturada</h3>
-            <p>Menos estímulos, más seguridad. Rutinas visuales y herramientas de regulación.</p>
-          </div>
-          <div class="shot-grid">
-            <img class="shot-mini" src="assets/glia-modo-calma.png" alt="Modo Calma en GLIA" />
-            <img class="shot-mini" src="assets/glia-panico.png" alt="Botón de pánico / regulación" />
-          </div>
+      <div class="roles-grid">
+        <article class="role-card">
+          <div class="role-icon">🎒</div>
+          <h3>Alumno</h3>
+          <p>De 7:00 a 19:00
+Cambio constante de asignaturas.
+Foco continuo.
+Cansancio acumulado.</p>
         </article>
 
-        <article class="card">
-          <div class="pad">
-            <span class="tag lilac"><span class="b"></span>Momento foco</span>
-            <h3>Cuando quieres avanzar</h3>
-            <p>Pomodoro suave, recordatorios no intrusivos y un entorno que mantiene el rumbo.</p>
-          </div>
-          <div class="shot-grid">
-            <img class="shot-mini" src="assets/glia-focus-timer.png" alt="Temporizador de foco" />
-            <img class="shot-mini" src="assets/glia-home.png" alt="Home / acciones rápidas" />
-          </div>
+        <article class="role-card">
+          <div class="role-icon">📚</div>
+          <h3>Docente</h3>
+          <p>Clases. Correcciones.
+Burocracia. Plataformas.
+Muchos perfiles, poco aire.</p>
         </article>
 
-        <article class="card">
-          <div class="pad">
-            <span class="tag warn"><span class="b"></span>Momento potencia</span>
-            <h3>Cuando estás en flow</h3>
-            <p>Más profundidad, más herramientas. Retos y “inbox” de ideas para capturar sin perder ritmo.</p>
-          </div>
-          <div class="shot-grid">
-            <img class="shot-mini" src="assets/glia-potencia.png" alt="Modo Potencia" />
-            <img class="shot-mini" src="assets/glia-settings.png" alt="Accesibilidad y ajustes" />
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="pad">
-            <span class="tag"><span class="b"></span>Momento exploración</span>
-            <h3>Cuando solo necesitas respirar</h3>
-            <p>Curiosidad guiada, contenido ligero y misiones sin presión. Aprender también puede regular.</p>
-          </div>
-          <div class="shot-grid">
-            <img class="shot-mini" src="assets/glia-checkin.png" alt="Check-in diario: ¿cómo estás hoy?" />
-            <img class="shot-mini" src="assets/glia-rutina-list.png" alt="Rutina / lista por hora" />
-          </div>
+        <article class="role-card">
+          <div class="role-icon">🏠</div>
+          <h3>Familia</h3>
+          <p>Trabajo. Casa. Deberes.
+Ayudar a estudiar contenidos que ya no usan,
+sin saber si lo están haciendo bien.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="metodo">
+  <!-- GLIA NACE PARA SOSTENER -->
+  <section id="sostiene" class="sostiene-section">
+    <div class="wrap">
+      <div class="sostiene-content">
+        <h2>GLIA nace para sostener a los tres.</h2>
+        <p>GLIA es una herramienta de apoyo educativo que adapta explicaciones, ritmo y acompañamiento cuando aparece el cansancio mental.<br/><br/>
+        <strong>No exige más esfuerzo. Ajusta el ritmo.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITUACIONES (CON VÍDEOS) -->
+  <section id="situaciones" class="situaciones-section">
     <div class="wrap">
       <div class="section-title">
-        <h2>El método: estructura que respira</h2>
-        <p>
-          El objetivo no es “hacer más”. Es <b>avanzar con menos fricción</b>, incluso en días difíciles.
-        </p>
+        <h2>Tres situaciones, una solución.</h2>
+        <p>No es tecnología por tecnología. Es alivio en el momento exacto.</p>
       </div>
 
-      <div class="grid-2">
-        <article class="card">
-          <div class="pad">
-            <span class="tag"><span class="b"></span>Bloqueo → primer paso</span>
-            <h3>De la parálisis a la acción</h3>
-            <p>
-              GLIA convierte tareas complejas en pasos pequeños y claros. Si te atascas, te ofrece ayuda por niveles:
-              directo → metáfora → simplificación → voz. Solo cuando lo necesitas.
-            </p>
+      <div class="situaciones-grid">
+        <!-- Video 1: Alumno -->
+        <article class="sit-card">
+          <div class="video-container">
+            <!-- Reemplazar con video de 8s: consigna confusa → pasos claros -->
+            <video autoplay muted loop playsinline poster="assets/video-alumno-poster.jpg">
+              <source src="assets/video-alumno.mp4" type="video/mp4">
+              <div class="video-placeholder">
+                <div class="play-icon">▶</div>
+                <span>Video 8s: Tareas paso a paso</span>
+              </div>
+            </video>
           </div>
-          <div class="shot-grid">
-            <img class="shot-mini" src="assets/glia-rutina-steps.png" alt="Rutina paso a paso" />
-            <img class="shot-mini" src="assets/glia-rutina-list.png" alt="Lista de rutinas" />
+          <div class="pad">
+            <h3>Cuando el alumno no puede más</h3>
+            <p>GLIA explica las tareas paso a paso y reduce la carga cuando la mente está agotada.</p>
           </div>
         </article>
 
-        <article class="card">
-          <div class="pad">
-            <span class="tag danger"><span class="b"></span>Regulación sin culpa</span>
-            <h3>Tu pausa también cuenta</h3>
-            <p>
-              Un entorno seguro para cuando todo pesa. Respiración guiada, apoyo inmediato y recordatorios suaves.
-              La calma no es perder el tiempo: es recuperar capacidad.
-            </p>
-            <div style="margin-top:14px; color: rgba(170,176,186,.9); font-size: 14px; line-height:1.45;">
-              <b>Sonido</b>: transiciones con un “pum pum” suave al empezar/terminar descansos (sin alarmas agresivas).
-            </div>
+        <!-- Video 2: Docente -->
+        <article class="sit-card">
+          <div class="video-container">
+            <!-- Reemplazar con video de 8s: actividad base → adaptaciones -->
+            <video autoplay muted loop playsinline poster="assets/video-docente-poster.jpg">
+              <source src="assets/video-docente.mp4" type="video/mp4">
+              <div class="video-placeholder">
+                <div class="play-icon">▶</div>
+                <span>Video 8s: Adaptar actividades</span>
+              </div>
+            </video>
           </div>
-          <div class="shot-grid">
-            <img class="shot-mini" src="assets/glia-panico.png" alt="Pantalla de regulación" />
-            <img class="shot-mini" src="assets/glia-focus-timer.png" alt="Transiciones de foco" />
+          <div class="pad">
+            <h3>Cuando el docente no llega</h3>
+            <p>GLIA ayuda a adaptar una misma actividad a distintos perfiles sin multiplicar trabajo.</p>
+          </div>
+        </article>
+
+        <!-- Video 3: Botón del pánico -->
+        <article class="sit-card">
+          <div class="video-container">
+            <!-- Reemplazar con video de 8s: pantalla saturada → botón pánico → calma -->
+            <video autoplay muted loop playsinline poster="assets/video-panico-poster.jpg">
+              <source src="assets/video-panico.mp4" type="video/mp4">
+              <div class="video-placeholder">
+                <div class="play-icon">▶</div>
+                <span>Video 8s: Botón de calma</span>
+              </div>
+            </video>
+          </div>
+          <div class="pad">
+            <h3>Parar también es avanzar</h3>
+            <p>El botón de pausa ofrece un espacio seguro cuando todo pesa. Respiración guiada y contención inmediata.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="espera" class="wait">
+  <!-- CIERRE FINAL -->
+  <section id="cierre" class="cierre-section">
     <div class="wrap">
-      <div class="section-title">
-        <h2>¿Te apuntas a la lista de espera?</h2>
-        <p>
-          GLIA está en fase de validación con comunidad educativa. Si quieres ser de las primeras personas en probarla,
-          deja tu email y te avisamos cuando abramos acceso.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="pad">
-          <form action="https://formspree.io/f/mvzrrdbv" method="POST">
-            <input type="email" name="email" placeholder="tuemail@ejemplo.com" required />
-            <button class="btn primary" type="submit">Apuntarme</button>
-            <a class="btn" href="#momentos">Ver el viaje</a>
-          </form>
-          <div id="toast" class="toast" role="status" aria-live="polite">
-            Listo 💚 Te avisaremos cuando abramos la lista. (Demo: aquí solo se muestra el mensaje.)
-          </div>
-
-          <div class="note">
-            No enviamos spam. Solo un aviso cuando haya acceso y, si quieres, una encuesta corta para mejorar GLIA.
-          </div>
-        </div>
+      <div class="cierre-content">
+        <h2>Aprender no debería ser una prueba de resistencia.</h2>
+        <p class="subtitle">GLIA no empuja.<br/>GLIA sostiene.</p>
+        <a class="btn primary" href="mailto:hola@glia.app?subject=Quiero saber más sobre GLIA">Quiero saber más</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <div class="foot">
-        <div>© 2026 GLIA · “Tu mente, a tu ritmo”.</div>
-        <div style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a href="#historia">Historia</a>
-          <a href="#momentos">Momentos</a>
-          <a href="#espera">Lista de espera</a>
-        </div>
-      </div>
+      <div>© 2026 GLIA · "Tu mente, a tu ritmo"</div>
     </div>
   </footer>
 
   <script>
-    // Smooth scroll (respect reduced-motion via CSS media query)
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -619,27 +578,6 @@
         e.preventDefault();
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
-    });
-
-    // Demo waitlist handler
-    const form = document.getElementById('waitlistForm');
-    const email = document.getElementById('email');
-    const toast = document.getElementById('toast');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const value = (email.value || '').trim();
-      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-      if (!ok) {
-        email.focus();
-        email.style.borderColor = 'rgba(225, 88, 88, .55)';
-        return;
-      }
-      email.style.borderColor = 'rgba(167,226,181,.35)';
-      toast.style.display = 'block';
-      toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      form.querySelector('button[type="submit"]').textContent = 'Apuntada ✅';
-      form.querySelector('button[type="submit"]').disabled = true;
     });
   </script>
 </body>
