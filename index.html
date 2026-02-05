@@ -500,6 +500,94 @@
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior: auto !important; transition: none !important; }
     }
+    /* Modal acceso */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 18px;
+}
+.modal-backdrop.open { display: flex; }
+
+.modal {
+  width: min(720px, 100%);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(180deg, rgba(26,28,33,.96), rgba(20,22,26,.92));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.modal-head {
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 18px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.modal-head h3 { margin: 0; font-size: 18px; letter-spacing: -.2px; }
+.modal-head p { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+.modal-close {
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  cursor: pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+
+.modal-body { padding: 16px 18px 18px; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.field { display:flex; flex-direction: column; gap: 7px; }
+label { font-size: 12px; color: rgba(245,246,248,.92); }
+select, input, textarea {
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  padding: 10px 12px;
+  outline: none;
+}
+textarea { min-height: 88px; resize: vertical; }
+.help { color: var(--muted); font-size: 12px; line-height: 1.45; }
+
+.form-actions {
+  display:flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.note-mini {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 680px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .form-actions { justify-content: stretch; }
+  .form-actions .btn { width: 100%; }
+}
+
+/* Honeypot oculto (antibot suave) */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
   </style>
 </head>
 
@@ -796,18 +884,220 @@ y con la tarde a punto de explotar.</p>
     </div>
   </footer>
 
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (!id || id.length < 2) return;
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+ <script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (!id || id.length < 2) return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  </script>
+  });
+
+  // Modal access request
+  const modal = document.getElementById('accessModal');
+  const form = document.getElementById('accessForm');
+
+  function openModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    // focus first field
+    const first = modal.querySelector('#role');
+    if (first) first.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  document.querySelectorAll('[data-open-access]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  document.querySelectorAll('[data-close-access]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  });
+
+  // close on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const honeypot = (data.get('company_website') || '').toString().trim();
+    if (honeypot) {
+      // probable bot
+      closeModal();
+      return;
+    }
+
+    const human = (data.get('humanCheck') || '').toString().trim();
+    if (human !== '5') {
+      alert('Ups, revisa la pregunta antibot 🙂');
+      return;
+    }
+
+    const role = (data.get('role') || '').toString();
+    const stage = (data.get('stage') || '').toString();
+    const usecase = (data.get('usecase') || '').toString();
+    const email = (data.get('email') || '').toString().trim();
+    const location = (data.get('location') || '').toString().trim();
+    const how = (data.get('how') || '').toString().trim();
+    const notes = (data.get('notes') || '').toString().trim();
+
+    const subject = 'Solicitud de acceso a GLIA';
+    const bodyLines = [
+      'Hola Ruth,',
+      '',
+      'Quiero pedir acceso a GLIA.',
+      '',
+      '— Datos —',
+      `• Soy: ${role}`,
+      `• Etapa / edad: ${stage}`,
+      `• Uso: ${usecase}`,
+      `• Email: ${email}`,
+      location ? `• Ciudad/país: ${location}` : null,
+      how ? `• Cómo te encontré: ${how}` : null,
+      '',
+      notes ? '— Contexto —' : null,
+      notes ? notes : null,
+      '',
+      'Gracias!'
+    ].filter(Boolean);
+
+    const mailto = `mailto:hola@glia.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+    closeModal();
+    form.reset();
+  });
+</script>
+
+  <!-- MODAL: Solicitud de acceso -->
+<div class="modal-backdrop" id="accessModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+    <div class="modal-head">
+      <div>
+        <h3 id="accessTitle">Pedir acceso a GLIA</h3>
+        <p>Cuéntame quién eres y para qué lo necesitas. Así priorizo demos reales y evito dar acceso a quien no toca.</p>
+      </div>
+      <button class="modal-close" type="button" data-close-access aria-label="Cerrar">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="accessForm">
+        <!-- honeypot -->
+        <div class="hp">
+          <label>Si eres humano, no rellenes esto</label>
+          <input type="text" name="company_website" autocomplete="off" />
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="role">Soy…</label>
+            <select id="role" name="role" required>
+              <option value="" selected disabled>Selecciona una opción</option>
+              <option>Padre / madre / tutor</option>
+              <option>Docente</option>
+              <option>Centro educativo / escuela</option>
+              <option>Profesional (psicología, logopedia, PT, etc.)</option>
+              <option>Uso personal (adulto)</option>
+              <option>Otro</option>
+            </select>
+            <div class="help">Lo uso para priorizar y preparar la demo adecuada.</div>
+          </div>
+
+          <div class="field">
+            <label for="stage">Etapa / edad</label>
+            <select id="stage" name="stage" required>
+              <option value="" selected disabled>Selecciona</option>
+              <option>Infantil / Primaria</option>
+              <option>ESO</option>
+              <option>Bachillerato</option>
+              <option>FP</option>
+              <option>Universidad</option>
+              <option>Adulto</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="usecase">¿Para qué lo quieres?</label>
+            <select id="usecase" name="usecase" required>
+              <option value="" selected disabled>Selecciona</option>
+              <option>Uso en casa (familia)</option>
+              <option>Uso en aula (docente)</option>
+              <option>Ambos: aula + casa</option>
+              <option>Piloto de centro</option>
+              <option>Evaluación profesional</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="tu@email.com" required />
+          </div>
+
+          <div class="field">
+            <label for="location">Ciudad / país (opcional)</label>
+            <input id="location" name="location" type="text" placeholder="Barcelona, ES" />
+          </div>
+
+          <div class="field">
+            <label for="how">¿Cómo me has encontrado? (opcional)</label>
+            <input id="how" name="how" type="text" placeholder="LinkedIn, UOC, recomendación..." />
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="notes">Contexto (opcional, pero ayuda mucho)</label>
+            <textarea id="notes" name="notes" placeholder="Ej.: alumno con TDAH, deberes que generan conflicto, necesidad de adaptar fichas..."></textarea>
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="humanCheck">Antibot: ¿cuánto es 2 + 3?</label>
+            <input id="humanCheck" name="humanCheck" type="text" inputmode="numeric" placeholder="Respuesta" required />
+            <div class="help">Sí, es simple a propósito 🙂</div>
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label style="display:flex; gap:10px; align-items:flex-start;">
+              <input type="checkbox" id="consent" required style="margin-top:3px;" />
+              <span class="help" style="margin:0;">
+                Acepto que uses estos datos solo para responder a mi solicitud de acceso.
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn ghost" data-close-access>Cancelar</button>
+          <button type="submit" class="btn primary">Enviar solicitud</button>
+        </div>
+
+        <div class="note-mini">
+          Consejo: si eres centro o docente, dime cuántos alumnos aprox. y si quieres piloto.
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
