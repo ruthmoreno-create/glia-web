@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glia — Tu mente, a tu ritmo</title>
-  <meta name="description" content="Glia es una capa cognitiva para aprender y trabajar sin bloqueo: convierte deberes reales (PDF/foto) en pasos ejecutables, adaptados a energía, nivel y accesibilidad." />
+  <title>Glia — Por fin, deberes sin bloqueo</title>
+  <meta name="description" content="Glia convierte deberes reales (PDF/foto) en pasos pequeños, claros y ejecutables. Menos bloqueo. Más calma. Más autonomía." />
   <link rel="icon" type="image/png" href="https://gliafinal.web.app/logo-glia.png" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Glia — Tu mente, a tu ritmo" />
-  <meta property="og:description" content="Del papel a la acción: PDF/foto → tareas → pasos ejecutables. Adaptado a energía, accesibilidad y nivel." />
+  <meta property="og:title" content="Glia — Por fin, deberes sin bloqueo" />
+  <meta property="og:description" content="Del papel al primer paso: PDF/foto → tareas → pasos claros. Para estudiar sin colapso." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://gliafinal.web.app/logo-glia.png" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -56,11 +54,7 @@
     }
 
     /* Gradient background */
-    .gradient-bg {
-      position: fixed; inset: 0;
-      z-index: -1;
-      overflow: hidden;
-    }
+    .gradient-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
     .gradient-bg::before {
       content: '';
       position: absolute;
@@ -76,18 +70,11 @@
       50% { transform: translate(-5%, -5%) rotate(5deg); }
     }
 
-    /* Layout helpers */
     section { padding: 6rem 2rem; }
     .container { max-width: 1200px; margin: 0 auto; }
-    .section-header {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 4rem;
-    }
+    .section-header { text-align: center; max-width: 780px; margin: 0 auto 4rem; }
     .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
+      display: inline-flex; align-items: center; gap: .5rem;
       background: rgba(163, 230, 53, 0.1);
       color: var(--color-primary);
       padding: .5rem 1rem;
@@ -116,30 +103,17 @@
       display: flex; justify-content: space-between; align-items: center;
       gap: 1rem;
     }
-    .logo {
-      display: flex; align-items: center; gap: .75rem;
-      text-decoration: none;
-    }
-    .logo img {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 0 1px var(--color-border);
-    }
+    .logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .logo img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 0 0 1px var(--color-border); }
     .logo span {
-      font-size: 1.5rem;
-      font-weight: 900;
+      font-size: 1.5rem; font-weight: 900;
       background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-    .nav-links a {
-      color: var(--color-text-muted);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .25s ease;
-    }
+    .nav-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 600; transition: color .25s ease; }
     .nav-links a:hover { color: var(--color-primary); }
     .nav-cta {
       background: var(--color-primary);
@@ -168,17 +142,11 @@
     }
 
     /* Mobile drawer */
-    .drawer {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.5);
-      display: none;
-      z-index: 999;
-    }
+    .drawer { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; z-index: 999; }
     .drawer.open { display: block; }
     .drawer-panel {
       position: absolute; top: 0; right: 0;
-      width: min(360px, 92vw);
-      height: 100%;
+      width: min(360px, 92vw); height: 100%;
       background: rgba(22,22,29,.98);
       border-left: 1px solid var(--color-border);
       padding: 1.25rem;
@@ -223,39 +191,16 @@
       border: 1px solid transparent;
       cursor: pointer;
     }
-    .btn-primary {
-      background: var(--color-primary);
-      color: var(--color-bg);
-    }
-    .btn-primary:hover {
-      background: var(--color-primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(163, 230, 53, 0.25);
-    }
-    .btn-secondary {
-      background: var(--color-surface);
-      color: var(--color-text);
-      border-color: var(--color-border);
-      font-weight: 700;
-    }
-    .btn-secondary:hover {
-      background: var(--color-surface-light);
-      border-color: rgba(167, 139, 250, 0.5);
-      transform: translateY(-1px);
-    }
+    .btn-primary { background: var(--color-primary); color: var(--color-bg); }
+    .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 15px 40px rgba(163, 230, 53, 0.25); }
+    .btn-secondary { background: var(--color-surface); color: var(--color-text); border-color: var(--color-border); font-weight: 700; }
+    .btn-secondary:hover { background: var(--color-surface-light); border-color: rgba(167, 139, 250, 0.5); transform: translateY(-1px); }
 
     /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 8rem 2rem 4rem;
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 2rem 4rem; }
     .hero-grid {
       max-width: 1200px; margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 4rem;
-      align-items: center;
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 4rem; align-items: center;
     }
     .hero h1 {
       font-size: clamp(2.6rem, 5vw, 4.2rem);
@@ -270,71 +215,41 @@
       background-clip: text;
     }
     .hero p.lead {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--color-text-muted);
       max-width: 680px;
       margin-bottom: 1.25rem;
     }
-
-    .hero-bullets {
+    .hero-emotion {
       margin: 1.25rem 0 1.75rem;
-      display: grid;
-      gap: .75rem;
+      display: grid; gap: .75rem;
       max-width: 680px;
     }
-    .hero-bullet {
-      display: flex;
-      gap: .75rem;
-      align-items: flex-start;
+    .emotion-line {
+      display: flex; gap: .75rem; align-items: flex-start;
       background: rgba(255,255,255,.03);
       border: 1px solid var(--color-border);
       border-radius: 16px;
       padding: .9rem 1rem;
     }
-    .hero-bullet .dot {
-      width: 12px; height: 12px;
-      border-radius: 999px;
-      margin-top: .3rem;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    .emotion-line .dot {
+      width: 12px; height: 12px; border-radius: 999px; margin-top: .35rem;
+      background: linear-gradient(135deg, var(--color-accent), rgba(255,255,255,.2));
       flex-shrink: 0;
     }
-    .hero-bullet strong { font-weight: 850; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .hero-meta {
-      display: flex; gap: 1.5rem;
-      margin-top: 1.25rem;
-      flex-wrap: wrap;
-      color: var(--color-text-muted);
-      font-size: .92rem;
-    }
-    .pill {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .5rem .8rem;
-      border: 1px solid var(--color-border);
-      border-radius: 999px;
-      background: rgba(255,255,255,.02);
-    }
+    .hero-meta { display: flex; gap: 1rem; margin-top: 1.25rem; flex-wrap: wrap; color: var(--color-text-muted); font-size: .92rem; }
+    .pill { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .8rem; border: 1px solid var(--color-border); border-radius: 999px; background: rgba(255,255,255,.02); }
 
     /* Mockup */
-    .mockup {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto;
-    }
+    .mockup { position: relative; width: 100%; max-width: 420px; margin: 0 auto; }
     .phone {
       background: var(--color-surface);
       border-radius: 40px;
       padding: 12px;
       box-shadow: var(--shadow-lg), 0 0 0 1px var(--color-border), inset 0 0 0 1px rgba(255,255,255,.05);
     }
-    .phone img {
-      width: 100%;
-      height: auto;
-      border-radius: 32px;
-      display: block;
-    }
+    .phone img { width: 100%; height: auto; border-radius: 32px; display: block; }
     .badge {
       position: absolute;
       background: rgba(22, 22, 29, 0.95);
@@ -352,15 +267,14 @@
     .b3 { top: 42%; right: -16%; animation-delay: 2s; }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-    /* Section backgrounds */
-    #problema { background: linear-gradient(180deg, transparent 0%, rgba(22, 22, 29, 0.55) 50%, transparent 100%); }
-    #como-funciona { background: linear-gradient(180deg, transparent 0%, rgba(163, 230, 53, 0.03) 50%, transparent 100%); }
-    #para-quien { background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.05) 50%, transparent 100%); }
+    /* Sections backgrounds */
+    #dolor { background: linear-gradient(180deg, transparent 0%, rgba(22, 22, 29, 0.55) 50%, transparent 100%); }
+    #alivio { background: linear-gradient(180deg, transparent 0%, rgba(163, 230, 53, 0.035) 50%, transparent 100%); }
+    #historia { background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.045) 50%, transparent 100%); }
     #faq { background: linear-gradient(180deg, transparent 0%, rgba(22, 22, 29, 0.55) 50%, transparent 100%); }
 
     /* Cards */
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .card {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
@@ -368,14 +282,9 @@
       padding: 2rem;
       transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
     }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(163, 230, 53, 0.5);
-      box-shadow: 0 20px 40px rgba(163, 230, 53, 0.08);
-    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(163, 230, 53, 0.5); box-shadow: 0 20px 40px rgba(163, 230, 53, 0.08); }
     .icon {
-      width: 56px; height: 56px;
-      border-radius: 16px;
+      width: 56px; height: 56px; border-radius: 16px;
       display: grid; place-items: center;
       font-size: 1.5rem;
       background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
@@ -386,213 +295,111 @@
     .card h3 { font-size: 1.25rem; font-weight: 850; margin-bottom: .6rem; }
     .card p { color: var(--color-text-muted); }
 
-    /* Steps */
-    .steps {
-      max-width: 920px;
-      margin: 0 auto;
-      display: grid;
-      gap: 1rem;
-    }
-    .step {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 1rem;
-      align-items: start;
-      padding: 1.25rem 1.5rem;
-      border-radius: 20px;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      transition: transform .2s ease, border-color .2s ease;
-    }
-    .step:hover { transform: translateX(8px); border-color: rgba(163, 230, 53, 0.5); }
-    .step .num {
-      width: 56px; height: 56px;
-      border-radius: 999px;
-      display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-      color: var(--color-bg);
-      font-weight: 950;
-      font-size: 1.2rem;
-    }
-    .step h3 { margin-bottom: .35rem; font-weight: 900; font-size: 1.1rem; }
-    .step p { color: var(--color-text-muted); }
-
-    .benefits {
-      max-width: 920px;
-      margin: 2rem auto 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    .benefit {
-      border: 1px solid var(--color-border);
+    /* Relief strip */
+    .relief {
+      max-width: 980px; margin: 0 auto;
       background: rgba(255,255,255,.03);
-      padding: 1rem 1.1rem;
-      border-radius: 14px;
-      font-weight: 650;
-    }
-
-    /* Differentials */
-    .diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .diff {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      display: flex; gap: 1rem;
-      transition: border-color .2s ease, transform .2s ease;
-    }
-    .diff:hover { border-color: rgba(167, 139, 250, 0.55); transform: translateY(-2px); }
-    .diff .dicon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      display: grid; place-items: center;
-      background: rgba(167, 139, 250, 0.14);
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-    .diff h3 { font-weight: 900; margin-bottom: .35rem; }
-    .diff p { color: var(--color-text-muted); font-size: .95rem; }
-
-    /* Profiles */
-    .profiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-    .profile {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 20px;
-      padding: 1.6rem 1.25rem;
-      text-align: center;
-      transition: transform .2s ease, border-color .2s ease;
-    }
-    .profile:hover { transform: translateY(-4px); border-color: rgba(163, 230, 53, 0.5); }
-    .profile .emoji { font-size: 2.4rem; margin-bottom: .8rem; }
-    .profile h3 { font-weight: 900; margin-bottom: .35rem; }
-    .profile p { color: var(--color-text-muted); font-size: .9rem; }
-
-    /* Screenshot rail */
-    .rail {
-      display: flex; gap: 1.25rem;
-      overflow-x: auto;
-      padding: 1.5rem .5rem 2rem;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-      scrollbar-color: var(--color-primary) var(--color-surface);
-    }
-    .rail::-webkit-scrollbar { height: 8px; }
-    .rail::-webkit-scrollbar-track { background: var(--color-surface); border-radius: 10px; }
-    .rail::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 10px; }
-
-    .shot {
-      flex: 0 0 240px;
-      scroll-snap-align: center;
-      text-align: center;
-    }
-    .shot img {
-      width: 100%;
-      height: auto;
+      border: 1px solid rgba(163,230,53,.22);
       border-radius: 24px;
-      box-shadow: var(--shadow-md), 0 0 0 1px var(--color-border);
-      transition: transform .2s ease, box-shadow .2s ease;
-      background: rgba(255,255,255,.02);
-    }
-    .shot:hover img {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 0 2px rgba(163, 230, 53, 0.6);
-    }
-    .shot p { margin-top: .9rem; color: var(--color-text-muted); font-weight: 700; font-size: .9rem; }
-
-    .note {
-      max-width: 980px;
-      margin: 0 auto;
-      border: 1px dashed rgba(255,255,255,.2);
-      border-radius: 18px;
-      padding: 1rem 1.25rem;
-      background: rgba(255,255,255,.02);
-      color: var(--color-text-muted);
-      font-size: .95rem;
-    }
-
-    /* Impact */
-    .impact {
+      padding: 1.75rem 1.5rem;
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 2rem;
-      align-items: start;
+      gap: 1rem;
     }
-    .impact-list { display: grid; gap: .85rem; margin-top: .75rem; }
-    .impact-item {
-      display: flex; gap: .75rem; align-items: flex-start;
-      padding: .95rem 1rem;
-      border-radius: 16px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--color-border);
-    }
-    .impact-item .tick {
-      width: 22px; height: 22px;
-      border-radius: 999px;
-      background: rgba(163, 230, 53, .18);
-      border: 1px solid rgba(163, 230, 53, .35);
+    .relief strong { font-weight: 900; }
+    .relief-list { display: grid; gap: .75rem; }
+    .relief-item { display: flex; gap: .75rem; align-items: flex-start; color: var(--color-text-muted); }
+    .relief-item .tick {
+      width: 22px; height: 22px; border-radius: 999px;
+      background: rgba(163,230,53,.18);
+      border: 1px solid rgba(163,230,53,.35);
       display: grid; place-items: center;
       color: var(--color-primary);
       font-weight: 950;
-      margin-top: .15rem;
+      margin-top: .1rem;
       flex-shrink: 0;
     }
-    .impact-right .card { padding: 1.6rem; }
-    .metric {
-      display: grid; gap: .6rem;
-      margin-top: .5rem;
+
+    /* Story blocks (THIS fixes “all screenshots look the same”) */
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.25rem;
+      align-items: center;
+      margin-bottom: 2.75rem;
     }
-    .metric-row {
-      display: flex; justify-content: space-between; gap: 1rem;
-      padding: .8rem 1rem;
-      border-radius: 14px;
+    .story.reverse { grid-template-columns: 1fr 1fr; }
+    .story.reverse .story-media { order: 2; }
+    .story.reverse .story-copy { order: 1; }
+
+    .story-copy h3 { font-size: 1.65rem; font-weight: 950; margin-bottom: .6rem; }
+    .story-copy p { color: var(--color-text-muted); font-size: 1.05rem; }
+
+    .chip-row { margin-top: .9rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+    .chip {
       border: 1px solid var(--color-border);
       background: rgba(255,255,255,.02);
+      border-radius: 999px;
+      padding: .45rem .75rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
     }
-    .metric-row strong { font-weight: 900; }
-    .metric-row span { color: var(--color-text-muted); }
 
-    /* FAQ */
-    .faq { max-width: 900px; margin: 0 auto; display: grid; gap: 1rem; }
-    .faq-item {
+    .story-media {
+      display: grid;
+      gap: 1rem;
+      justify-items: center;
+    }
+
+    /* Different image frames */
+    .frame {
+      width: 100%;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
-      border-radius: 16px;
-      overflow: hidden;
+      border-radius: 26px;
+      padding: 12px;
+      box-shadow: var(--shadow-md);
     }
-    .faq-q {
+    .frame img {
       width: 100%;
-      text-align: left;
-      background: transparent;
-      border: none;
-      color: var(--color-text);
-      padding: 1.25rem 1.25rem;
-      cursor: pointer;
-      font-weight: 850;
-      display: flex; justify-content: space-between; align-items: center;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .frame.tall { max-width: 340px; border-radius: 36px; }
+    .frame.tall img { border-radius: 28px; }
+
+    .frame.wide { max-width: 560px; }
+    .frame.wide img { border-radius: 16px; }
+
+    .collage {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 1rem;
+      align-items: start;
     }
-    .faq-q:hover { background: var(--color-surface-light); }
-    .faq-icon { color: var(--color-primary); font-size: 1.4rem; transition: transform .2s ease; }
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .25s ease, padding .25s ease;
-      padding: 0 1.25rem;
+    .mini {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
     }
-    .faq-item.active .faq-a { max-height: 600px; padding: 0 1.25rem 1.25rem; }
-    .faq-item.active .faq-icon { transform: rotate(45deg); }
-    .faq-a p { color: var(--color-text-muted); }
+    .mini img { width: 100%; height: auto; border-radius: 14px; display: block; }
+
+    .caption {
+      font-size: .9rem;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
 
     /* CTA band */
-    .cta {
-      text-align: center;
-      padding: 7rem 2rem;
-    }
+    .cta { text-align: center; padding: 7rem 2rem; }
     .cta .box {
-      max-width: 950px;
-      margin: 0 auto;
+      max-width: 950px; margin: 0 auto;
       border: 1px solid var(--color-border);
       border-radius: 28px;
       padding: 3rem 2rem;
@@ -603,12 +410,31 @@
     .cta p { color: var(--color-text-muted); font-size: 1.1rem; max-width: 720px; margin: 0 auto 1.75rem; }
     .cta .actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
+    /* FAQ */
+    .faq { max-width: 900px; margin: 0 auto; display: grid; gap: 1rem; }
+    .faq-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; }
+    .faq-q {
+      width: 100%; text-align: left;
+      background: transparent; border: none; color: var(--color-text);
+      padding: 1.25rem 1.25rem;
+      cursor: pointer; font-weight: 850;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem;
+    }
+    .faq-q:hover { background: var(--color-surface-light); }
+    .faq-icon { color: var(--color-primary); font-size: 1.4rem; transition: transform .2s ease; }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .25s ease, padding .25s ease;
+      padding: 0 1.25rem;
+    }
+    .faq-item.active .faq-a { max-height: 600px; padding: 0 1.25rem 1.25rem; }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-a p { color: var(--color-text-muted); }
+
     /* Contact */
     #contacto { background: var(--color-surface); border-top: 1px solid var(--color-border); }
-    .contact {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-      align-items: start;
-    }
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .contact h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: .75rem; }
     .links { display: grid; gap: .75rem; margin-top: 1.25rem; }
     .link {
@@ -621,12 +447,7 @@
       transition: border-color .2s ease, transform .2s ease;
     }
     .link:hover { border-color: rgba(163, 230, 53, 0.55); transform: translateY(-1px); }
-    .link .licon {
-      width: 40px; height: 40px;
-      border-radius: 12px;
-      background: var(--color-surface-light);
-      display: grid; place-items: center;
-    }
+    .link .licon { width: 40px; height: 40px; border-radius: 12px; background: var(--color-surface-light); display: grid; place-items: center; }
     form {
       display: grid; gap: .9rem;
       background: rgba(0,0,0,.12);
@@ -649,24 +470,14 @@
     textarea { min-height: 120px; resize: vertical; }
 
     /* Footer */
-    footer {
-      background: var(--color-bg);
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--color-border);
-    }
+    footer { background: var(--color-bg); padding: 3rem 2rem; border-top: 1px solid var(--color-border); }
     .footer {
       max-width: 1200px; margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      gap: 1.5rem; flex-wrap: wrap;
     }
     .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .footer-links a {
-      color: var(--color-text-muted);
-      text-decoration: none;
-      font-weight: 650;
-      font-size: .95rem;
-    }
+    .footer-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 650; font-size: .95rem; }
     .footer-links a:hover { color: var(--color-primary); }
     .copyright { color: var(--color-text-muted); font-size: .9rem; }
 
@@ -674,22 +485,23 @@
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-actions { justify-content: center; }
-      .hero-bullets { margin-left: auto; margin-right: auto; text-align: left; }
+      .hero-emotion { margin-left: auto; margin-right: auto; text-align: left; }
       .badge { display: none; }
       .grid-3 { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .profiles { grid-template-columns: repeat(2, 1fr); }
-      .benefits { grid-template-columns: 1fr; }
-      .impact { grid-template-columns: 1fr; }
+      .story { grid-template-columns: 1fr; text-align: left; }
+      .story.reverse .story-media { order: 1; }
+      .story.reverse .story-copy { order: 2; }
       .contact { grid-template-columns: 1fr; }
+      .frame.tall { max-width: 380px; }
+      .frame.wide { max-width: 720px; }
     }
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
       .mobile-menu-btn { display: inline-flex; }
-      .profiles { grid-template-columns: 1fr; }
       section { padding: 5rem 1.25rem; }
       nav { padding: .9rem 1.25rem; }
       .hero { padding: 7rem 1.25rem 3rem; }
+      .collage { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -708,17 +520,14 @@
         <button class="drawer-close" type="button" onclick="closeDrawer();" aria-label="Cerrar">✕</button>
       </div>
       <ul class="drawer-links">
-        <li><a href="#problema" onclick="closeDrawer();">El problema</a></li>
-        <li><a href="#como-funciona" onclick="closeDrawer();">Cómo funciona</a></li>
-        <li><a href="#diferenciales" onclick="closeDrawer();">Por qué Glia</a></li>
-        <li><a href="#para-quien" onclick="closeDrawer();">¿Para quién?</a></li>
-        <li><a href="#capturas" onclick="closeDrawer();">Capturas</a></li>
-        <li><a href="#privacidad" onclick="closeDrawer();">Privacidad</a></li>
+        <li><a href="#dolor" onclick="closeDrawer();">¿Te suena?</a></li>
+        <li><a href="#alivio" onclick="closeDrawer();">El alivio</a></li>
+        <li><a href="#historia" onclick="closeDrawer();">Una tarde con Glia</a></li>
         <li><a href="#faq" onclick="closeDrawer();">FAQ</a></li>
         <li><a href="#contacto" onclick="closeDrawer();">Pedir acceso</a></li>
       </ul>
       <div class="drawer-cta">
-        <a class="btn-primary" href="https://gliafinal.web.app" target="_blank" rel="noopener noreferrer">🚀 Probar Glia</a>
+        <a class="btn-primary" href="https://gliafinal.web.app" target="_blank" rel="noopener noreferrer">🚀 Quiero probarlo</a>
         <a class="btn-secondary" href="#contacto" onclick="closeDrawer();">📋 Pedir demo</a>
       </div>
     </div>
@@ -733,434 +542,335 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#problema">El problema</a></li>
-        <li><a href="#como-funciona">Cómo funciona</a></li>
-        <li><a href="#diferenciales">Por qué Glia</a></li>
-        <li><a href="#para-quien">¿Para quién?</a></li>
+        <li><a href="#dolor">¿Te suena?</a></li>
+        <li><a href="#alivio">Alivio</a></li>
+        <li><a href="#historia">Historia</a></li>
         <li><a href="#contacto">Pedir acceso</a></li>
       </ul>
 
-      <a href="https://gliafinal.web.app" class="nav-cta" target="_blank" rel="noopener noreferrer">Probar Glia</a>
+      <a href="https://gliafinal.web.app" class="nav-cta" target="_blank" rel="noopener noreferrer">Quiero probarlo</a>
       <button class="mobile-menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- HERO (dolor+alivio en la misma primera pantalla) -->
   <section class="hero" id="inicio">
     <div class="hero-grid">
       <div>
-        <div class="tag">🧠 Capa cognitiva para aprender sin bloqueo</div>
-        <h1>Tu mente, <span class="highlight">a tu ritmo</span></h1>
+        <div class="tag">🧠 Para cuando tu cabeza ya no puede más</div>
+        <h1>Por fin, <span class="highlight">deberes sin bloqueo</span></h1>
         <p class="lead">
-          Aprender no debería ser una prueba de resistencia. Glia convierte deberes reales (PDF/foto/cuaderno)
-          en <strong>pasos ejecutables</strong>, adaptados a energía, nivel y accesibilidad para conectar aula y casa.
+          Hay días en los que no es pereza. No es falta de ganas. Es <strong>saturación</strong>.
+          Glia convierte deberes reales (PDF/foto/cuaderno) en <strong>pasos pequeños</strong> para que puedas empezar sin colapsar.
         </p>
 
-        <div class="hero-bullets" role="list">
-          <div class="hero-bullet" role="listitem">
+        <div class="hero-emotion" role="list">
+          <div class="emotion-line" role="listitem">
             <div class="dot" aria-hidden="true"></div>
-            <div><strong>Del material al plan</strong>: importas → eliges → Glia lo convierte en tareas con guía.</div>
+            <div><strong>Dolor:</strong> “Sé que tengo que hacerlo, pero no puedo empezar.”</div>
           </div>
-          <div class="hero-bullet" role="listitem">
+          <div class="emotion-line" role="listitem">
             <div class="dot" aria-hidden="true"></div>
-            <div><strong>Ayuda escalonada</strong>: “no lo entiendo” se traduce en explicación gradual y accionable.</div>
+            <div><strong>Dolor:</strong> “No lo entiendo y me da vergüenza preguntar otra vez.”</div>
           </div>
-          <div class="hero-bullet" role="listitem">
+          <div class="emotion-line" role="listitem">
             <div class="dot" aria-hidden="true"></div>
-            <div><strong>Regulación y autonomía</strong>: energía, foco, crisis y progreso medidos sin culpabilizar.</div>
+            <div><strong>Alivio:</strong> “Ok. Un primer paso. Solo uno.”</div>
           </div>
         </div>
 
         <div class="hero-actions">
-          <a href="https://gliafinal.web.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Probar Glia</a>
-          <a href="#como-funciona" class="btn-secondary">▶️ Ver cómo funciona</a>
+          <a href="https://gliafinal.web.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Quiero probarlo</a>
+          <a href="#historia" class="btn-secondary">▶️ Enséñamelo en 1 minuto</a>
         </div>
 
         <div class="hero-meta">
-          <span class="pill">👤 3 perfiles: alumno / docente / familia</span>
-          <span class="pill">🌍 5 idiomas</span>
-          <span class="pill">📄 PDF/foto → pasos ejecutables</span>
+          <span class="pill">📄 PDF/foto → pasos</span>
+          <span class="pill">⚡ Ritmo por energía</span>
+          <span class="pill">♿ Accesible</span>
         </div>
       </div>
 
       <div class="mockup" aria-label="Vista previa de la app">
         <div class="phone">
-          <img src="agenda.png" alt="Agenda inteligente con tareas organizadas" onerror="this.src='agenda2.png'; this.onerror=null;" />
+          <img src="agenda.png" alt="Agenda con tareas priorizadas" onerror="this.src='agenda2.png'; this.onerror=null;" />
         </div>
-        <div class="badge b1"><span aria-hidden="true">🎯</span> Empezar sin bloqueo</div>
-        <div class="badge b2"><span aria-hidden="true">🧩</span> Pasos claros</div>
-        <div class="badge b3"><span aria-hidden="true">⚡</span> Ritmo por energía</div>
+        <div class="badge b1"><span aria-hidden="true">🧩</span> Pasos claros</div>
+        <div class="badge b2"><span aria-hidden="true">🫶</span> Menos presión</div>
+        <div class="badge b3"><span aria-hidden="true">⚡</span> A tu ritmo</div>
       </div>
     </div>
   </section>
 
-  <!-- Problem -->
-  <section id="problema">
+  <!-- DOLOR -->
+  <section id="dolor">
     <div class="container">
       <div class="section-header">
-        <span class="tag">El problema</span>
-        <h2>Un día normal. Tres perspectivas. El mismo cansancio.</h2>
-        <p class="muted">El sistema exige rendimiento continuo a personas que ya están al límite: foco, tareas, cambios, presión… y luego deberes.</p>
+        <span class="tag">¿Te suena?</span>
+        <h2>Cuando la tarde se convierte en una batalla</h2>
+        <p class="muted">Y encima te sientes mal por sentirte así.</p>
       </div>
 
       <div class="grid-3">
         <div class="card">
-          <div class="icon">🎒</div>
-          <h3>Alumno</h3>
-          <p>Jornada larga, cambios constantes, cansancio acumulado. Al llegar a casa, toca “activar” otra vez sin saber por dónde empezar.</p>
+          <div class="icon">😵</div>
+          <h3>La hoja da miedo</h3>
+          <p>Ves el ejercicio y tu mente se queda en blanco. No sabes por dónde empezar. Y cuanto más lo miras, peor.</p>
         </div>
         <div class="card">
-          <div class="icon">📚</div>
-          <h3>Docente</h3>
-          <p>Clases, correcciones, burocracia y múltiples perfiles. La adaptación personalizada suele quedarse en intención por falta de tiempo.</p>
+          <div class="icon">⏳</div>
+          <h3>“Solo son 20 minutos”…</h3>
+          <p>Pero pasan 60 y sigues bloqueado. Te culpas, te frustras y al final lo haces a la carrera (o no lo haces).</p>
         </div>
         <div class="card">
-          <div class="icon">🏠</div>
-          <h3>Familia</h3>
-          <p>Trabajo, casa y deberes. Se intenta ayudar sin recordar contenidos ni saber si el apoyo está siendo útil o empeora el estrés.</p>
+          <div class="icon">💥</div>
+          <h3>Casa = tensión</h3>
+          <p>Familia intentando ayudar sin saber cómo. Discusiones. Lágrimas. Y nadie entiende por qué es tan difícil.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section id="como-funciona">
+  <!-- ALIVIO -->
+  <section id="alivio">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Cómo funciona</span>
-        <h2>Del papel a la acción (sin drama)</h2>
-        <p class="muted">Glia empieza donde empieza la vida real: un PDF, una foto del cuaderno o una ficha.</p>
+        <span class="tag">El alivio</span>
+        <h2>Glia no te empuja. Te sostiene.</h2>
+        <p class="muted">No te exige “más fuerza”. Te da estructura cuando te falta energía.</p>
       </div>
 
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <div>
-            <h3>Sube el material</h3>
-            <p>PDF o imagen. Nada de copiar/pegar deberes a mano.</p>
-          </div>
+      <div class="relief">
+        <div class="muted">
+          <strong style="color:white;">La idea es simple:</strong> si el problema es “no puedo empezar”, entonces el objetivo no es “acabar”.
+          El objetivo es <strong style="color:white;">dar el primer paso</strong>.
         </div>
-        <div class="step">
-          <div class="num">2</div>
-          <div>
-            <h3>La IA extrae ejercicios y tú decides</h3>
-            <p>Glia detecta lo que hay en el documento y tú eliges qué se convierte en tareas. Control humano, siempre.</p>
-          </div>
+        <div class="relief-list">
+          <div class="relief-item"><div class="tick">✓</div><div>Convierte “haz esto” en <strong style="color:white;">pasos pequeños</strong> que no asustan.</div></div>
+          <div class="relief-item"><div class="tick">✓</div><div>Si no entiendes algo, te guía con <strong style="color:white;">ayuda escalonada</strong> (sin juicio).</div></div>
+          <div class="relief-item"><div class="tick">✓</div><div>Te ayuda a escoger tareas según <strong style="color:white;">tu energía real</strong>, no tu energía ideal.</div></div>
+          <div class="relief-item"><div class="tick">✓</div><div>Incluye accesibilidad (por ejemplo <strong style="color:white;">OpenDyslexic</strong>) para reducir fricción.</div></div>
         </div>
-        <div class="step">
-          <div class="num">3</div>
-          <div>
-            <h3>Se traduce en pasos ejecutables</h3>
-            <p>Descompone, prioriza por energía y te guía con ayuda escalonada para empezar sin bloqueo.</p>
-          </div>
-        </div>
-      </div>
 
-      <div class="benefits" aria-label="Beneficios principales">
-        <div class="benefit">✓ Menos discusiones por deberes: hay un plan</div>
-        <div class="benefit">✓ Más autonomía: el alumno avanza sin vigilancia constante</div>
-        <div class="benefit">✓ Coherencia aula–casa: mismo lenguaje y pasos</div>
-        <div class="benefit">✓ Menos carga docente: adaptar sin multiplicar trabajo</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Differentials -->
-  <section id="diferenciales">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag">Por qué Glia</span>
-        <h2>No es una app de tareas. Es un sistema de apoyo cognitivo.</h2>
-        <p class="muted">Glia combina ejecución, comprensión, energía y bienestar en una experiencia coherente.</p>
-      </div>
-
-      <div class="diff-grid">
-        <div class="diff">
-          <div class="dicon">⚡</div>
-          <div>
-            <h3>Ritmo por energía</h3>
-            <p>Las tareas tienen coste (poca/media/alta). Glia ayuda a distribuir el esfuerzo real, no el ideal.</p>
-          </div>
-        </div>
-        <div class="diff">
-          <div class="dicon">🧩</div>
-          <div>
-            <h3>Descomposición ejecutable</h3>
-            <p>Convierte “haz apuntes” en una lista de pasos pequeños y accionables, con check y avance visible.</p>
-          </div>
-        </div>
-        <div class="diff">
-          <div class="dicon">🧠</div>
-          <div>
-            <h3>Ayuda escalonada</h3>
-            <p>Si no entiendes algo, Glia lo explica en niveles. La meta no es “responder”, sino comprender y avanzar.</p>
-          </div>
-        </div>
-        <div class="diff">
-          <div class="dicon">🧘</div>
-          <div>
-            <h3>Bienestar medible</h3>
-            <p>Seguimiento de crisis y herramientas de regulación. No para “controlar”, sino para sostener y aprender patrones.</p>
-          </div>
-        </div>
-        <div class="diff">
-          <div class="dicon">♿</div>
-          <div>
-            <h3>Accesibilidad real</h3>
-            <p>OpenDyslexic, ajustes de contraste (y más). Diseñado para reducir fricción, no para “verse inclusivo”.</p>
-          </div>
-        </div>
-        <div class="diff">
-          <div class="dicon">🏫</div>
-          <div>
-            <h3>Conecta aula y casa</h3>
-            <p>Tres perfiles que comparten lenguaje y estructura. Menos “interpretación” y más continuidad educativa.</p>
-          </div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:.25rem;">
+          <a href="https://gliafinal.web.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Quiero sentir eso</a>
+          <a href="#contacto" class="btn-secondary">📋 Pedir acceso</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- For who -->
-  <section id="para-quien">
+  <!-- HISTORIA / ESCENAS (aquí arreglamos lo de imágenes iguales) -->
+  <section id="historia">
     <div class="container">
       <div class="section-header">
-        <span class="tag">¿Para quién?</span>
-        <h2>Glia sostiene a los tres</h2>
-        <p class="muted">Alumno, docente y familia. Mismo lenguaje, distintos roles. Un puente real.</p>
+        <span class="tag">Una tarde con Glia</span>
+        <h2>De “no puedo” a “vale… ya estoy”</h2>
+        <p class="muted">No es magia. Es diseño para cuando el cerebro está saturado.</p>
       </div>
 
-      <div class="profiles">
-        <div class="profile">
-          <div class="emoji">🎒</div>
-          <h3>Alumnos</h3>
-          <p>Pasos claros, ayuda gradual y un espacio seguro cuando la cabeza no da para más.</p>
-        </div>
-        <div class="profile">
-          <div class="emoji">👨‍🏫</div>
-          <h3>Docentes</h3>
-          <p>Asignación y seguimiento con coherencia. Menos carga operativa, más foco en enseñar.</p>
-        </div>
-        <div class="profile">
-          <div class="emoji">👨‍👩‍👧</div>
-          <h3>Familias</h3>
-          <p>Ver progreso sin estar encima. Menos fricción, más calma en casa.</p>
-        </div>
-        <div class="profile">
-          <div class="emoji">🏫</div>
-          <h3>Centros</h3>
-          <p>Pilotos con visión de escala: consistencia metodológica, inclusión práctica y datos para mejorar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Screenshots -->
-  <section id="capturas">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag">Capturas</span>
-        <h2>Así se vive Glia</h2>
-        <p class="muted">Interfaz limpia, sin abrumar, con foco en la acción y la calma.</p>
-      </div>
-    
-      <div class="rail" aria-label="Capturas de pantalla">
-        <div class="shot">
-          <img src="importar-ejercicios.png" alt="Importar ejercicios desde PDF o foto" onerror="this.style.display='none';" />
-          <p>Importar PDF/Foto</p>
-        </div>
-        <div class="shot">
-          <img src="agenda.png" alt="Agenda inteligente" onerror="this.src='agenda2.png'; this.onerror=null;" />
-          <p>Agenda Inteligente</p>
-        </div>
-        <div class="shot">
-          <img src="creacion-tarea.png" alt="Crear tarea con coste de energía" onerror="this.style.display='none';" />
-          <p>Niveles de Energía</p>
-        </div>
-        <div class="shot">
-          <img src="descomposicion-tareas.png" alt="Desglose de tareas en pasos" onerror="this.style.display='none';" />
-          <p>Pasos Ejecutables</p>
-        </div>
-        <div class="shot">
-          <img src="ayuda-tareas.png" alt="Ayuda escalonada de IA" onerror="this.style.display='none';" />
-          <p>Ayuda Escalonada</p>
-        </div>
-        <div class="shot">
-          <img src="decision-magica.png" alt="Decisión mágica para empezar" onerror="this.style.display='none';" />
-          <p>Decisión Mágica</p>
-        </div>
-        <div class="shot">
-          <img src="historial-crisis.png" alt="Seguimiento de bienestar" onerror="this.style.display='none';" />
-          <p>Bienestar</p>
-        </div>
-        <div class="shot">
-          <img src="Dislexia.png" alt="Accesibilidad con OpenDyslexic" onerror="this.style.display='none';" />
-          <p>Accesibilidad</p>
-        </div>
-
-        <!-- Opcionales: si existen en tu repo -->
-        <div class="shot">
-          <img src="profesores.png" alt="Herramientas para docentes" onerror="this.style.display='none';" />
-          <p>Modo Docente</p>
-        </div>
-        <div class="shot">
-          <img src="Panic-IA.png" alt="Modo calma" onerror="this.style.display='none';" />
-          <p>Modo Calma</p>
-        </div>
-        <div class="shot">
-          <img src="musica.png" alt="Música y focus" onerror="this.style.display='none';" />
-          <p>Música y Focus</p>
-        </div>
-        <div class="shot">
-          <img src="pomodoro.png" alt="Sesiones Pomodoro" onerror="this.style.display='none';" />
-          <p>Pomodoro</p>
-        </div>
-        <div class="shot">
-          <img src="voz-IA.png" alt="Asistente por voz" onerror="this.style.display='none';" />
-          <p>Asistente de Voz</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact (no inventar datos: placeholders honestos) -->
-  <section id="impacto">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag">Impacto</span>
-        <h2>Lo importante: qué cambia</h2>
-        <p class="muted">Glia reduce fricción y aumenta autonomía. Aquí es donde convences al jurado: transformación, no pantallas.</p>
-      </div>
-
-      <div class="impact">
-        <div>
-          <h3 style="font-weight:950; font-size:1.35rem;">Resultados que buscamos (medibles)</h3>
-          <div class="impact-list">
-            <div class="impact-item"><div class="tick">✓</div><div><strong>Menos bloqueo inicial</strong>: bajar el “no sé por dónde empezar”.</div></div>
-            <div class="impact-item"><div class="tick">✓</div><div><strong>Más autonomía</strong>: más tareas terminadas sin supervisión constante.</div></div>
-            <div class="impact-item"><div class="tick">✓</div><div><strong>Menos conflicto en casa</strong>: plan claro y lenguaje compartido.</div></div>
-            <div class="impact-item"><div class="tick">✓</div><div><strong>Mejor autorregulación</strong>: detectar patrones de cansancio/crisis y ajustar ritmo.</div></div>
-          </div>
-
-          <p class="muted" style="margin-top:1rem;">
-            (Aquí puedes añadir datos reales cuando los tengas: piloto, entrevistas, tests con usuarios, etc.)
-          </p>
-        </div>
-
-        
-         
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Privacy -->
-  <section id="privacidad">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag">Privacidad & Datos</span>
-        <h2>Educación y datos: aquí no se improvisa</h2>
-        <p class="muted">Glia está pensada para contextos sensibles: menores, entorno educativo y bienestar.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="icon">🔒</div>
-          <h3>Principios</h3>
+      <!-- Scene 1: Collage (diferente composición) -->
+      <div class="story">
+        <div class="story-copy">
+          <h3>1) “Tengo un PDF… y cero ganas”</h3>
           <p>
-            Minimización de datos, acceso por rol, y transparencia. La IA ayuda, pero el control lo tiene la persona.
+            No empiezas porque el material abruma. Con Glia, subes el PDF o una foto.
+            Y la app lo convierte en algo que se puede mirar sin entrar en pánico: opciones claras.
           </p>
-          <p class="muted" style="margin-top:.75rem;">
-            Si quieres, aquí podemos concretar: qué se guarda, cuánto tiempo, qué se anonimiza, y qué se puede exportar.
-          </p>
+          <div class="chip-row">
+            <span class="chip">📥 Importar PDF / foto</span>
+            <span class="chip">🧠 Menos fricción</span>
+            <span class="chip">🧩 Empieza por lo pequeño</span>
+          </div>
         </div>
-        <div class="card">
-          <div class="icon">🧾</div>
-          <h3>Compliance (placeholder)</h3>
+        <div class="story-media">
+          <div class="collage">
+            <div class="mini">
+              <img src="importar-ejercicios.png" alt="Importar ejercicios desde PDF o imagen" onerror="this.style.display='none';" />
+            </div>
+            <div class="mini">
+              <img src="descubrir.png" alt="Descubrir contenidos y temas" onerror="this.style.display='none';" />
+            </div>
+          </div>
+          <div class="caption">Importas → eliges → listo. Sin copiar/pegar deberes.</div>
+        </div>
+      </div>
+
+      <!-- Scene 2: Tall phone (vertical protagonista) -->
+      <div class="story reverse">
+        <div class="story-copy">
+          <h3>2) “Vale, ¿qué hago primero?”</h3>
           <p>
-            Añade tu enfoque: consentimiento, protección de menores, y cumplimiento aplicable (por ejemplo GDPR en UE).
+            Aquí es donde normalmente se rompe todo. Glia te muestra una agenda clara y te ayuda a priorizar sin culpabilizar.
+            No te pide “hazlo todo”. Te pide “elige uno”.
           </p>
-          <p class="muted" style="margin-top:.75rem;">
-            Importante: no digas “encriptación extremo a extremo” si no es literalmente cierto. Mejor: “cifrado en tránsito y en reposo”.
+          <div class="chip-row">
+            <span class="chip">📅 Agenda clara</span>
+            <span class="chip">🎯 Prioridad</span>
+            <span class="chip">🫶 Menos pelea en casa</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="frame tall">
+            <img src="agenda.png" alt="Agenda con tareas prioritarias" onerror="this.src='agenda2.png'; this.onerror=null;" />
+          </div>
+          <div class="caption">Ver tareas así ya baja el ruido mental.</div>
+        </div>
+      </div>
+
+      <!-- Scene 3: Wide + micro-copy (layout ancho) -->
+      <div class="story">
+        <div class="story-copy">
+          <h3>3) “No lo entiendo” (sin vergüenza)</h3>
+          <p>
+            No te suelta una respuesta fría. Te acompaña por niveles: primero lo básico, luego lo importante,
+            y después lo que necesitas para avanzar. La sensación cambia: de bloqueo → dirección.
           </p>
+          <div class="chip-row">
+            <span class="chip">🧠 Ayuda escalonada</span>
+            <span class="chip">🗣️ Explicación simple</span>
+            <span class="chip">✅ Avance real</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="frame wide">
+            <img src="ayuda-tareas.png" alt="Soporte IA con explicación escalonada" onerror="this.style.display='none';" />
+          </div>
+          <div class="caption">“Todavía no lo entiendo” → la ayuda se adapta, no te juzga.</div>
+        </div>
+      </div>
+
+      <!-- Scene 4: Collage (pasos + decisión mágica) -->
+      <div class="story reverse">
+        <div class="story-copy">
+          <h3>4) Cuando elegir cansa… Glia elige contigo</h3>
+          <p>
+            La “decisión mágica” existe para un día concreto: ese en el que todo cuesta.
+            Te propone una acción posible. No perfecta. Posible.
+          </p>
+          <div class="chip-row">
+            <span class="chip">🪄 Decisión Mágica</span>
+            <span class="chip">🧩 Pasos ejecutables</span>
+            <span class="chip">⚡ Energía real</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="collage">
+            <div class="mini">
+              <img src="descomposicion-tareas.png" alt="Tarea dividida en pasos claros" onerror="this.style.display='none';" />
+            </div>
+            <div class="mini">
+              <img src="decision-magica.png" alt="Decisión mágica: empieza con una acción" onerror="this.style.display='none';" />
+            </div>
+          </div>
+          <div class="caption">La clave no es hacerlo perfecto. Es empezar.</div>
+        </div>
+      </div>
+
+      <!-- Scene 5: Tall + accesibilidad/bienestar -->
+      <div class="story">
+        <div class="story-copy">
+          <h3>Y si hoy no se puede… también cuenta</h3>
+          <p>
+            Glia no es “productividad tóxica”. Tiene accesibilidad y bienestar porque aprender también es regularse.
+            Si estás saturado, lo registras, respiras y vuelves cuando puedas.
+          </p>
+          <div class="chip-row">
+            <span class="chip">♿ OpenDyslexic</span>
+            <span class="chip">🧘 Bienestar</span>
+            <span class="chip">❤️ Menos culpa</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="collage">
+            <div class="mini">
+              <img src="Dislexia.png" alt="Configuración con OpenDyslexic" onerror="this.style.display='none';" />
+            </div>
+            <div class="mini">
+              <img src="historial-crisis.png" alt="Seguimiento de bienestar" onerror="this.style.display='none';" />
+            </div>
+          </div>
+          <div class="caption">No eres un robot. Estudiar también es cuidarte.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- CTA (emocional) -->
+  <section class="cta" id="cta">
+    <div class="box">
+      <h2>Que estudiar no te rompa</h2>
+      <p>
+        Si tu reacción al ver deberes es “me bloqueo”, Glia está hecha para ti.
+        No te promete milagros. Te promete algo mejor: <strong>un primer paso</strong>.
+      </p>
+      <div class="actions">
+        <a href="https://gliafinal.web.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Quiero probarlo</a>
+        <a href="#contacto" class="btn-secondary">📋 Pedir acceso</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (más emocional y de confianza) -->
   <section id="faq">
     <div class="container">
       <div class="section-header">
         <span class="tag">FAQ</span>
-        <h2>Preguntas que te van a hacer</h2>
-        <p class="muted">Y respuestas claras, sin humo.</p>
+        <h2>Lo que la gente pregunta de verdad</h2>
+        <p class="muted">Sin humo. Sin promesas imposibles.</p>
       </div>
 
       <div class="faq">
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Glia es una app de tareas más?
+            ¿Glia hace los deberes por mí?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              No. Glia se centra en <strong>convertir tareas reales en pasos ejecutables</strong>, adaptados a energía, accesibilidad y nivel.
-              No solo organiza: reduce bloqueo, guía comprensión y acompaña la ejecución.
+              No. Glia te ayuda a <strong>entender y avanzar</strong>: divide la tarea en pasos, te guía y te sostiene cuando te bloqueas.
+              La idea es que ganes autonomía, no que copies respuestas.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Cómo evita que la IA “invente” o haga daño?
+            ¿Y si tengo TDAH / TEA / dislexia / ansiedad?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              Glia mantiene <strong>control humano</strong>: extrae, sugiere y estructura, pero la decisión final es de la persona.
-              La IA se usa como apoyo cognitivo (pasos, explicación gradual), no como sustituto del aprendizaje.
+              Glia está pensada para cuando hay <strong>sobrecarga cognitiva</strong>. Incluye accesibilidad (como OpenDyslexic) y funciones para ritmo/energía.
+              Y si un día no puedes, no te castiga: te ayuda a volver.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Qué pasa con los datos (menores, educación, bienestar)?
+            ¿Se puede usar sin que la familia esté encima?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              El diseño prioriza minimización y seguridad. Aquí conviene detallar tu modelo real: qué se almacena, cifrado en tránsito/en reposo,
-              roles (docente/familia/alumno) y consentimiento.
+              Esa es una de las metas: que el alumno tenga estructura para avanzar solo, y que la familia pueda apoyar sin convertirse en “policía de deberes”.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Cuánto cuesta?
+            ¿Qué pasa con mis datos?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              Puedes plantear planes por perfil: individual, docente y centro. En fase de piloto: acceso bajo solicitud + demo.
-              (Define esto según SpinUOC: no hace falta precios cerrados, pero sí lógica de modelo.)
+              Glia está diseñada para contextos sensibles. Si quieres, te cuento exactamente qué se guarda y qué no (y cómo se protege).
+              Transparencia antes que marketing.
             </p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="cta">
-    <div class="box">
-      <h2>Aprender no debería ser una prueba de resistencia</h2>
-      <p>Glia no empuja. Glia sostiene. Y convierte el “no sé por dónde empezar” en un primer paso.</p>
-      <div class="actions">
-        <a href="https://gliafinal.web.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Probar Glia</a>
-        <a href="#contacto" class="btn-secondary">📋 Pedir acceso / demo</a>
       </div>
     </div>
   </section>
@@ -1170,9 +880,9 @@
     <div class="container">
       <div class="contact">
         <div>
-          <h3>¿Quieres pilotar Glia?</h3>
+          <h3>¿Quieres acceso / demo?</h3>
           <p class="muted">
-            Si eres docente, familia o centro y quieres probarlo con un caso real, escríbeme. Prefiero feedback de campo.
+            Si eres familia, docente o alumno/a y te apetece probarlo con un caso real, escríbeme. Busco feedback honesto.
           </p>
 
           <div class="links">
@@ -1182,7 +892,7 @@
             </a>
             <a class="link" href="https://gliafinal.web.app" target="_blank" rel="noopener noreferrer">
               <span class="licon" aria-hidden="true">🧪</span>
-              <span><strong>Demo</strong><br><span class="muted">Acceder a Glia</span></span>
+              <span><strong>Probar Glia</strong><br><span class="muted">Acceder a la demo</span></span>
             </a>
           </div>
         </div>
@@ -1198,11 +908,11 @@
           </div>
           <div>
             <label for="message">Mensaje</label>
-            <textarea id="message" name="message" placeholder="Cuéntame tu caso (perfil, nivel, objetivo, etc.)" required></textarea>
+            <textarea id="message" name="message" placeholder="Cuéntame tu caso (nivel, qué te bloquea, qué te gustaría conseguir…)" required></textarea>
           </div>
           <button type="submit" class="btn-primary">Enviar</button>
           <p class="muted" style="font-size:.85rem;">
-            (Este formulario solo muestra un aviso. Si quieres envío real, te lo conecto a Formspree / Firebase / Netlify Forms.)
+            (Este formulario solo muestra un aviso. Si quieres envío real, se conecta a Formspree / Firebase / Netlify Forms.)
           </p>
         </form>
       </div>
@@ -1216,17 +926,15 @@
         <span>Glia</span>
       </a>
       <div class="footer-links">
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#diferenciales">Por qué Glia</a>
-        <a href="#capturas">Capturas</a>
-        <a href="#privacidad">Privacidad</a>
+        <a href="#dolor">¿Te suena?</a>
+        <a href="#historia">Historia</a>
+        <a href="#faq">FAQ</a>
         <a href="#contacto">Contacto</a>
       </div>
       <div class="copyright">© 2026 Glia. Todos los derechos reservados.</div>
     </div>
   </footer>
 
-  <!-- Tiny toast -->
   <div id="toast" class="sr-only" aria-live="polite"></div>
 
   <script>
@@ -1273,9 +981,7 @@
     window.closeDrawer = closeDrawer;
 
     menuBtn?.addEventListener('click', openDrawer);
-    drawer?.addEventListener('click', (e) => {
-      if (e.target === drawer) closeDrawer();
-    });
+    drawer?.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
     });
