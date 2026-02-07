@@ -372,12 +372,17 @@
     .frame.tall img { border-radius: 28px; }
 
     .frame.wide { max-width: 560px; }
-    .small-help {
-  max-width: 420px;
+
+.small-help{
+  width: 420px;        /* <- esto es lo que encoge */
+  max-width: 100%;     /* <- para que en móvil no se rompa */
   margin: 0 auto;
+  justify-self: center; /* <- por si el grid te lo estira */
   box-shadow: 0 30px 60px rgba(0,0,0,.55);
 }
-    .frame.wide img { border-radius: 16px; }
+
+.frame.wide img { border-radius: 16px; }
+
 
     .collage {
       width: 100%;
