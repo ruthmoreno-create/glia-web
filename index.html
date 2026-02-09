@@ -909,7 +909,7 @@
           </div>
         </div>
 
-        <form onsubmit="event.preventDefault(); toast('¡Mensaje enviado! Te responderé pronto.');">
+        <form action="https://formspree.io/f/mvzrrdbv" method="POST">
           <div>
             <label for="name">Nombre</label>
             <input id="name" name="name" type="text" placeholder="Tu nombre" required />
@@ -926,6 +926,8 @@
           <p class="muted" style="font-size:.85rem;">
             (Este formulario solo muestra un aviso. Si quieres envío real, se conecta a Formspree / Firebase / Netlify Forms.)
           </p>
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde Glia (landing)" />
+          <input type="hidden" name="_replyto" value="%email%" />
         </form>
       </div>
     </div>
