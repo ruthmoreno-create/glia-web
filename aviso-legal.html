@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso legal - Glia</title>
+  <meta name="description" content="Aviso legal de Glia: información sobre la titularidad del sitio web, condiciones de uso, propiedad intelectual y limitación de responsabilidad." />
+  <link rel="icon" type="image/png" href="https://useglia.app/logo-glia.png" />
+
+  <style>
+    :root {
+      --color-bg: #0a0a0f;
+      --color-surface: #16161d;
+      --color-surface-light: #1e1e28;
+      --color-primary: #a3e635;
+      --color-primary-dark: #84cc16;
+      --color-accent: #a78bfa;
+      --color-text: #ffffff;
+      --color-text-muted: #9ca3af;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --radius-lg: 24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+
+    .gradient-bg {
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;
+    }
+    .gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(163,230,53,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(167,139,250,0.08) 0%, transparent 50%);
+    }
+
+    header {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.25rem 2rem;
+      background: rgba(10,10,15,0.9);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+    }
+    .logo span {
+      font-weight: 900;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .back-link {
+      font-size: .9rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--color-primary); }
+
+    main {
+      max-width: 960px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.5rem 3rem;
+    }
+    .page-title {
+      margin-bottom: 1.75rem;
+    }
+    .page-title h1 {
+      font-size: 2rem;
+      margin-bottom: .25rem;
+    }
+    .page-title p {
+      color: var(--color-text-muted);
+      font-size: .95rem;
+    }
+
+    section {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    section h2 {
+      font-size: 1.1rem;
+      margin-bottom: .75rem;
+    }
+    section p, section li {
+      font-size: .95rem;
+      color: var(--color-text-muted);
+    }
+    section + section { margin-top: 1rem; }
+    ul { padding-left: 1.1rem; margin-top: .4rem; }
+    li + li { margin-top: .25rem; }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: .85rem;
+    }
+    footer a { color: var(--color-primary); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      header { padding-inline: 1.25rem; }
+      main { padding-inline: 1.25rem; }
+      section { padding-inline: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true"></div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span>Glia</span>
+      </a>
+      <a href="index.html" class="back-link">&larr; Volver a la web</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-title">
+      <h1>Aviso legal</h1>
+      <p>Información básica sobre la titularidad de este sitio web y las condiciones de uso.</p>
+    </div>
+
+    <section>
+      <h2>1. Titular del sitio web</h2>
+      <p>
+        A efectos de lo previsto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información
+        y de comercio electrónico (LSSI-CE), se informa de que el sitio web accesible en <strong>useglia.com</strong>
+        (en adelante, «el Sitio Web») es titularidad de <strong>Glia</strong>.
+      </p>
+      <p style="margin-top:.75rem;">
+        Persona de contacto / responsable del proyecto: <strong>Ruth Moreno</strong><br>
+        Correo de contacto: <a href="mailto:hola@useglia.com">hola@useglia.com</a>
+      </p>
+      <p style="margin-top:.75rem;">
+        Si en el futuro se constituye una entidad jurídica específica (sociedad mercantil u otra),
+        estos datos podrán actualizarse para reflejar la nueva titularidad.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Objeto del sitio web</h2>
+      <p>
+        El Sitio Web tiene por objeto ofrecer información sobre <strong>Glia</strong>, una plataforma de soporte cognitivo
+        y adaptación de tareas educativas, así como facilitar el contacto con personas, familias, centros y profesionales
+        interesados en conocer o probar el producto (por ejemplo, mediante formularios o enlaces de contacto).
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Condiciones de uso</h2>
+      <p>
+        El acceso y navegación por el Sitio Web implica la aceptación de las presentes condiciones de uso. La persona
+        usuaria se compromete a hacer un uso diligente, correcto y lícito de los contenidos y, en particular, a no
+        realizar ninguna de las siguientes conductas:
+      </p>
+      <ul>
+        <li>Utilizar los contenidos con fines o efectos ilícitos, contrarios a la buena fe o al orden público.</li>
+        <li>Provocar daños en los sistemas físicos o lógicos del titular del Sitio Web, de sus proveedores o de terceras personas.</li>
+        <li>Intentar acceder y, en su caso, utilizar las cuentas de correo electrónico de otros usuarios o servicios restringidos.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Propiedad intelectual e industrial</h2>
+      <p>
+        Salvo indicación expresa en contrario, los contenidos del Sitio Web (textos, imágenes, identidad visual,
+        diseño, código, etc.) son titularidad de la responsable del proyecto o se utilizan con las licencias correspondientes.
+      </p>
+      <p style="margin-top:.75rem;">
+        Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de
+        explotación no autorizada expresamente por escrito, más allá de lo permitido por la normativa de propiedad
+        intelectual e industrial.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Enlaces externos</h2>
+      <p>
+        El Sitio Web puede contener enlaces a sitios de terceros (por ejemplo, a la propia aplicación de Glia o a
+        servicios de demostración). La titular no se hace responsable de los contenidos o políticas de privacidad de
+        dichos sitios externos, que deberán ser consultadas por la persona usuaria.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Limitación de responsabilidad</h2>
+      <p>
+        La información ofrecida en el Sitio Web tiene carácter divulgativo y orientativo. Aunque se procura mantener
+        los contenidos actualizados y libres de errores, no se garantiza la completa exactitud, pertinencia o
+        actualidad de toda la información.
+      </p>
+      <p style="margin-top:.75rem;">
+        El uso que la persona usuaria haga del Sitio Web y de la información contenida en él es de su exclusiva
+        responsabilidad. Glia no será responsable de los daños o perjuicios que pudieran derivarse de errores,
+        omisiones o falta de disponibilidad del Sitio Web, siempre que se hayan adoptado las medidas técnicas
+        razonables para evitarlos o reducir su impacto.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Protección de datos personales</h2>
+      <p>
+        El tratamiento de los datos personales que, en su caso, se recaben a través del Sitio Web (por ejemplo,
+        a través de formularios de contacto) se regirá por lo establecido en la
+        <a href="privacidad.html">Política de privacidad</a>, que la persona usuaria debe leer y aceptar, si procede.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Legislación aplicable y jurisdicción</h2>
+      <p>
+        Salvo que una normativa específica establezca lo contrario, la relación entre la titular del Sitio Web y la
+        persona usuaria se regirá por la legislación española. Para cualquier controversia que pudiera derivarse
+        del acceso o uso del Sitio Web, y siempre que la normativa aplicable lo permita, las partes se someten a los
+        Juzgados y Tribunales de la ciudad que corresponda al domicilio de la titular.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Glia &middot; <a href="index.html">Volver a la web</a>
+  </footer>
+</body>
+</html>
+

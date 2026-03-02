@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de cookies - Glia</title>
+  <meta name="description" content="Política de cookies de Glia: información sobre qué cookies se utilizan (si las hay) y con qué finalidad." />
+  <link rel="icon" type="image/png" href="https://useglia.app/logo-glia.png" />
+
+  <style>
+    :root {
+      --color-bg: #0a0a0f;
+      --color-surface: #16161d;
+      --color-surface-light: #1e1e28;
+      --color-primary: #a3e635;
+      --color-primary-dark: #84cc16;
+      --color-accent: #a78bfa;
+      --color-text: #ffffff;
+      --color-text-muted: #9ca3af;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --radius-lg: 24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+
+    .gradient-bg {
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;
+    }
+    .gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(163,230,53,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(167,139,250,0.08) 0%, transparent 50%);
+    }
+
+    header {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.25rem 2rem;
+      background: rgba(10,10,15,0.9);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+    }
+    .logo span {
+      font-weight: 900;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .back-link {
+      font-size: .9rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--color-primary); }
+
+    main {
+      max-width: 960px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.5rem 3rem;
+    }
+    .page-title {
+      margin-bottom: 1.75rem;
+    }
+    .page-title h1 {
+      font-size: 2rem;
+      margin-bottom: .25rem;
+    }
+    .page-title p {
+      color: var(--color-text-muted);
+      font-size: .95rem;
+    }
+
+    section {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    section h2 {
+      font-size: 1.1rem;
+      margin-bottom: .75rem;
+    }
+    section p, section li {
+      font-size: .95rem;
+      color: var(--color-text-muted);
+    }
+    ul { padding-left: 1.1rem; margin-top: .4rem; }
+    li + li { margin-top: .25rem; }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: .85rem;
+    }
+    footer a { color: var(--color-primary); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      header { padding-inline: 1.25rem; }
+      main { padding-inline: 1.25rem; }
+      section { padding-inline: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true"></div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span>Glia</span>
+      </a>
+      <a href="index.html" class="back-link">&larr; Volver a la web</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-title">
+      <h1>Política de cookies</h1>
+      <p>Información sobre el uso de cookies y tecnologías similares en este Sitio Web.</p>
+    </div>
+
+    <section>
+      <h2>1. ¿Qué son las cookies?</h2>
+      <p>
+        Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas determinadas
+        páginas web. Pueden servir, por ejemplo, para recordar tus preferencias, facilitar la navegación o elaborar
+        estadísticas anónimas de uso.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Qué cookies utiliza este Sitio Web</h2>
+      <p>
+        En el momento actual, el Sitio Web de Glia tiene un uso muy limitado de cookies y no emplea cookies de
+        analítica, publicidad comportamental ni similares.
+      </p>
+      <p style="margin-top:.75rem;">
+        Pueden existir únicamente:
+      </p>
+      <ul>
+        <li>Cookies técnicas o estrictamente necesarias, asociadas al funcionamiento básico del Sitio Web (por ejemplo, equilibrio de carga o seguridad).</li>
+        <li>Cookies que pudieran ser generadas por servicios de terceros integrados (por ejemplo, reproductores de vídeo o formularios externos), en cuyo caso se recomienda revisar también las políticas de dichos terceros.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Cookies de terceros</h2>
+      <p>
+        Si en el futuro se integran herramientas de analítica (como Google Analytics) u otros servicios que instalen
+        cookies no técnicas, se actualizará esta Política de cookies para detallar:
+      </p>
+      <ul>
+        <li>Qué proveedor instala la cookie.</li>
+        <li>Con qué finalidad.</li>
+        <li>Durante cuánto tiempo permanece activa.</li>
+      </ul>
+      <p style="margin-top:.75rem;">
+        En ese caso, también se implementará el correspondiente banner o sistema de gestión de consentimiento para
+        que puedas aceptar o rechazar las cookies opcionales.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Cómo gestionar o eliminar las cookies</h2>
+      <p>
+        Puedes configurar tu navegador para aceptar o rechazar cookies, así como para eliminarlas después de cada
+        sesión. Los pasos concretos dependen del navegador que utilices (por ejemplo, Chrome, Firefox, Safari, Edge).
+      </p>
+      <p style="margin-top:.75rem;">
+        Ten en cuenta que bloquear determinadas cookies técnicas puede afectar al funcionamiento correcto del Sitio Web.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Actualizaciones de esta política</h2>
+      <p>
+        Esta Política de cookies puede actualizarse para reflejar cambios en el uso de cookies en el Sitio Web o
+        para adaptarse a requisitos legales o técnicos. Publicaremos la versión actualizada en esta misma página
+        indicando, si procede, la fecha de la última revisión.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Glia &middot; <a href="index.html">Volver a la web</a>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de privacidad - Glia</title>
+  <meta name="description" content="Política de privacidad de Glia: cómo tratamos los datos personales recogidos a través de formularios y canales de contacto." />
+  <link rel="icon" type="image/png" href="https://useglia.app/logo-glia.png" />
+
+  <style>
+    :root {
+      --color-bg: #0a0a0f;
+      --color-surface: #16161d;
+      --color-surface-light: #1e1e28;
+      --color-primary: #a3e635;
+      --color-primary-dark: #84cc16;
+      --color-accent: #a78bfa;
+      --color-text: #ffffff;
+      --color-text-muted: #9ca3af;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --radius-lg: 24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+
+    .gradient-bg {
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;
+    }
+    .gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(163,230,53,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(167,139,250,0.08) 0%, transparent 50%);
+    }
+
+    header {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.25rem 2rem;
+      background: rgba(10,10,15,0.9);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+    }
+    .logo span {
+      font-weight: 900;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .back-link {
+      font-size: .9rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--color-primary); }
+
+    main {
+      max-width: 960px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.5rem 3rem;
+    }
+    .page-title {
+      margin-bottom: 1.75rem;
+    }
+    .page-title h1 {
+      font-size: 2rem;
+      margin-bottom: .25rem;
+    }
+    .page-title p {
+      color: var(--color-text-muted);
+      font-size: .95rem;
+    }
+
+    section {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    section h2 {
+      font-size: 1.1rem;
+      margin-bottom: .75rem;
+    }
+    section p, section li {
+      font-size: .95rem;
+      color: var(--color-text-muted);
+    }
+    ul { padding-left: 1.1rem; margin-top: .4rem; }
+    li + li { margin-top: .25rem; }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: .85rem;
+    }
+    footer a { color: var(--color-primary); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      header { padding-inline: 1.25rem; }
+      main { padding-inline: 1.25rem; }
+      section { padding-inline: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true"></div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span>Glia</span>
+      </a>
+      <a href="index.html" class="back-link">&larr; Volver a la web</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-title">
+      <h1>Política de privacidad</h1>
+      <p>Cómo tratamos los datos personales que se recogen a través de este sitio web.</p>
+    </div>
+
+    <section>
+      <h2>1. Responsable del tratamiento</h2>
+      <p>
+        La responsable del tratamiento de los datos personales recogidos a través de este Sitio Web es
+        <strong>Glia</strong> (proyecto liderado por <strong>Ruth Moreno</strong>).
+      </p>
+      <p style="margin-top:.75rem;">
+        Correo de contacto para cuestiones de privacidad: <a href="mailto:hola@useglia.com">hola@useglia.com</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Datos que podemos tratar</h2>
+      <p>Dependiendo de cómo interactúes con el Sitio Web, podemos tratar las siguientes categorías de datos:</p>
+      <ul>
+        <li>Datos de contacto básicos: nombre, apellidos, dirección de correo electrónico.</li>
+        <li>Datos que incluyas de forma voluntaria en los campos de texto libre de los formularios (por ejemplo, contexto de uso, perfil del alumnado, etc.).</li>
+        <li>Datos técnicos mínimos asociados a la navegación (dirección IP abreviada, identificadores de dispositivo o similares), en la medida en que sean necesarios para la seguridad y el funcionamiento del Sitio Web.</li>
+      </ul>
+      <p style="margin-top:.75rem;">
+        En esta fase, el Sitio Web no tiene como objetivo recopilar datos clínicos ni historiales médicos. Te pedimos
+        que no incluyas información especialmente sensible en los formularios (por ejemplo, diagnósticos concretos
+        asociados a nombres y apellidos).
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Finalidades del tratamiento</h2>
+      <p>Utilizamos tus datos para las siguientes finalidades:</p>
+      <ul>
+        <li>Atender las consultas, solicitudes de información o de demo que nos envíes a través de los formularios o del correo de contacto.</li>
+        <li>Gestionar posibles pilotos con centros educativos o profesionales interesados.</li>
+        <li>Enviarte comunicaciones puntuales relacionadas con Glia (por ejemplo, respuesta a tu mensaje, seguimiento de una demo solicitada), siempre asociadas a una interacción previa por tu parte.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Base de legitimación</h2>
+      <p>
+        La base jurídica que nos permite tratar tus datos personales es tu <strong>consentimiento</strong>, que
+        otorgas al enviar voluntariamente un formulario o contactar por correo electrónico.
+      </p>
+      <p style="margin-top:.75rem;">
+        Puedes retirar tu consentimiento en cualquier momento escribiendo a
+        <a href="mailto:hola@useglia.com">hola@useglia.com</a>. La retirada del consentimiento no afectará a los
+        tratamientos realizados con anterioridad.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Plazos de conservación</h2>
+      <p>
+        Conservaremos tus datos personales durante el tiempo necesario para atender tu solicitud o mantener la
+        relación derivada de tu interés en Glia (por ejemplo, mientras se está organizando un piloto o demo).
+      </p>
+      <p style="margin-top:.75rem;">
+        Pasado ese tiempo, podremos mantenerlos debidamente bloqueados durante los plazos de prescripción legales
+        que resulten aplicables, únicamente a efectos de atender posibles responsabilidades.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Destinatarios y encargados de tratamiento</h2>
+      <p>
+        Para poder prestar el servicio y gestionar las comunicaciones, podemos apoyarnos en proveedores externos
+        (por ejemplo, servicios de formularios, correo electrónico o alojamiento web) que actúan como
+        <strong>encargados del tratamiento</strong> y que tratan tus datos siguiendo nuestras instrucciones.
+      </p>
+      <p style="margin-top:.75rem;">
+        En particular, el formulario del Sitio Web puede estar conectado a servicios de terceros (como
+        plataformas de formularios o infraestructura cloud) ubicados dentro o fuera de la Unión Europea.
+        En caso de transferencias internacionales de datos, se procurará que se realicen con las garantías adecuadas,
+        ya sea mediante decisiones de adecuación de la Comisión Europea o mediante cláusulas contractuales tipo.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Derechos de las personas usuarias</h2>
+      <p>Puedes ejercer en cualquier momento los siguientes derechos, en los términos previstos por la normativa:</p>
+      <ul>
+        <li>Derecho de acceso: saber qué datos personales tuyos tratamos.</li>
+        <li>Derecho de rectificación: solicitar la corrección de datos inexactos o incompletos.</li>
+        <li>Derecho de supresión: pedir que eliminemos tus datos cuando ya no sean necesarios o retires tu consentimiento.</li>
+        <li>Derecho de limitación del tratamiento, oposición y portabilidad, en los supuestos previstos por la normativa.</li>
+      </ul>
+      <p style="margin-top:.75rem;">
+        Para ejercer estos derechos, puedes escribir a <a href="mailto:hola@useglia.com">hola@useglia.com</a>,
+        indicando el derecho que deseas ejercer y aportando, si es necesario, información que permita verificar tu identidad.
+      </p>
+      <p style="margin-top:.75rem;">
+        Asimismo, si consideras que tus derechos no han sido adecuadamente atendidos, puedes presentar una reclamación
+        ante la autoridad de control competente (en España, la Agencia Española de Protección de Datos, <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>).
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Menores de edad</h2>
+      <p>
+        Aunque el producto Glia está pensado para apoyar a estudiantes, el Sitio Web y sus formularios están dirigidos
+        principalmente a personas adultas (familias, docentes, centros, profesionales).
+      </p>
+      <p style="margin-top:.75rem;">
+        Si crees que hemos podido recibir datos personales de un/a menor sin la debida autorización de sus progenitores
+        o representantes legales, por favor, escríbenos a <a href="mailto:hola@useglia.com">hola@useglia.com</a>
+        para que podamos revisarlo y, en su caso, proceder a su eliminación.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Actualizaciones de esta política</h2>
+      <p>
+        Esta Política de privacidad puede actualizarse periódicamente para reflejar cambios en la normativa o en la
+        forma en que tratamos los datos personales. Publicaremos la versión actualizada en esta misma página, indicando
+        la fecha de la última revisión.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Glia &middot; <a href="index.html">Volver a la web</a>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+# Glia (useglia.com) - Soporte Cognitivo e Inclusión Educativa
+
+## Descripción
+Glia es una plataforma de IA neuroinclusiva diseñada para docentes, alumnos y familias. Convierte materiales educativos reales (PDF, fotos, texto) en pasos pequeños, claros y ejecutables, reduciendo la carga cognitiva y apoyando la función ejecutiva.
+
+## Pilares Metodológicos
+- Método Socrático: La IA guía al alumno mediante andamiaje pedagógico, nunca entrega la respuesta final.
+- Neuroinclusividad: Diseñada específicamente para perfiles TDAH, TEA, dislexia, ansiedad y saturación cognitiva.
+- Conexión Aula-Casa: Mantiene la coherencia entre el material del docente y el apoyo en el hogar, sin romper la dinámica del aula.
+
+## Especificaciones Técnicas
+- IA Multi-Agente: Clasificador, Estratega, Simplificador y Revisor, trabajando en cadena.
+- Privacidad: Cumplimiento estricto de RGPD. Los datos de menores no se usan para reentrenamiento de modelos.
+- Idiomas: Castellano, Catalán, Inglés, Euskera y Gallego.
+
+## Modelo de uso
+Glia es un producto de pago con acceso mediante pilotos, centros educativos y licencias por alumno.
+
+## Contacto y Autoridad
+Fundadora: Ruth Moreno, experta en IA Generativa y Multimedia con 25 años de trayectoria.
+Web: https://useglia.com
+Contacto: hola@useglia.com
+
