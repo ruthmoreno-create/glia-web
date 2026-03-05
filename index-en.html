@@ -1,43 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glia — Por fin, deberes sin bloqueo</title>
-  <meta name="description" content="Glia convierte deberes reales (PDF/foto) en pasos pequeños, claros y ejecutables. Menos bloqueo. Más calma. Más autonomía." />
+  <title>Glia — Finally, homework without shutdown</title>
+  <meta name="description" content="Glia turns real homework (PDF/photo) into small, clear, executable steps. Less overload. More calm. More autonomy." />
   <link rel="icon" type="image/png" href="https://useglia.app/logo-glia.png" />
 
-  <meta property="og:title" content="Glia — Por fin, deberes sin bloqueo" />
-  <meta property="og:description" content="Del papel al primer paso: PDF/foto → tareas → pasos claros. Para estudiar sin colapso." />
+  <meta property="og:title" content="Glia — Finally, homework without shutdown" />
+  <meta property="og:description" content="From paper to first step: PDF/photo → tasks → clear steps. Study without meltdown." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://useglia.app/logo-glia.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Glia",
-    "url": "https://useglia.com",
-    "operatingSystem": "Web",
-    "applicationCategory": "EducationalApplication",
-    "inLanguage": ["es", "ca", "en", "eu", "gl"],
-    "description": "Plataforma de IA neuroinclusiva que convierte deberes reales (PDF, fotos, texto) en pasos pequeños y claros para estudiantes con TDAH, TEA, dislexia, ansiedad y otros perfiles.",
-    "author": {
-      "@type": "Person",
-      "name": "Ruth Moreno",
-      "jobTitle": "Fundadora y Experta en IA"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Glia",
-      "url": "https://useglia.com"
-    }
-  }
-  </script>
 
   <style>
     :root {
@@ -76,7 +53,6 @@
       white-space: nowrap; border: 0;
     }
 
-    /* Gradient background */
     .gradient-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
     .gradient-bg::before {
       content: '';
@@ -163,7 +139,24 @@
       cursor: pointer;
       font-size: 1.15rem;
     }
-
+    .lang-switch {
+      display: flex;
+      gap: .5rem;
+      font-size: .85rem;
+      color: var(--color-text-muted);
+      align-items: center;
+    }
+    .lang-switch a {
+      text-decoration: none;
+      padding: .1rem .4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .lang-switch a.active {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    
     /* Mobile drawer */
     .drawer { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; z-index: 999; }
     .drawer.open { display: block; }
@@ -201,7 +194,7 @@
     }
     .drawer-links a:hover { border-color: rgba(163, 230, 53, 0.45); }
     .drawer-cta { margin-top: .75rem; display: grid; gap: .75rem; }
-
+    
     /* Buttons */
     .btn-primary, .btn-secondary {
       border-radius: 999px;
@@ -290,13 +283,11 @@
     .b3 { top: 42%; right: -16%; animation-delay: 2s; }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-    /* Sections backgrounds */
-    #dolor { background: linear-gradient(180deg, transparent 0%, rgba(22, 22, 29, 0.55) 50%, transparent 100%); }
-    #alivio { background: linear-gradient(180deg, transparent 0%, rgba(163, 230, 53, 0.035) 50%, transparent 100%); }
-    #historia { background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.045) 50%, transparent 100%); }
+    #pain { background: linear-gradient(180deg, transparent 0%, rgba(22, 22, 29, 0.55) 50%, transparent 100%); }
+    #relief { background: linear-gradient(180deg, transparent 0%, rgba(163, 230, 53, 0.035) 50%, transparent 100%); }
+    #story { background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.045) 50%, transparent 100%); }
     #faq { background: linear-gradient(180deg, transparent 0%, rgba(22, 22, 29, 0.55) 50%, transparent 100%); }
 
-    /* Cards */
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
     .card {
       background: var(--color-surface);
@@ -315,10 +306,7 @@
       margin-bottom: 1.25rem;
       font-weight: 900;
     }
-    .card h3 { font-size: 1.25rem; font-weight: 850; margin-bottom: .6rem; }
-    .card p { color: var(--color-text-muted); }
 
-    /* Relief strip */
     .relief {
       max-width: 980px; margin: 0 auto;
       background: rgba(255,255,255,.03);
@@ -342,7 +330,6 @@
       flex-shrink: 0;
     }
 
-    /* Story blocks (THIS fixes “all screenshots look the same”) */
     .story {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -350,7 +337,6 @@
       align-items: center;
       margin-bottom: 2.75rem;
     }
-    .story.reverse { grid-template-columns: 1fr 1fr; }
     .story.reverse .story-media { order: 2; }
     .story.reverse .story-copy { order: 1; }
 
@@ -368,13 +354,7 @@
       color: var(--color-text-muted);
     }
 
-    .story-media {
-      display: grid;
-      gap: 1rem;
-      justify-items: center;
-    }
-
-    /* Different image frames */
+    .story-media { display: grid; gap: 1rem; justify-items: center; }
     .frame {
       width: 100%;
       background: var(--color-surface);
@@ -383,29 +363,9 @@
       padding: 12px;
       box-shadow: var(--shadow-md);
     }
-    .frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 18px;
-      background: rgba(255,255,255,.02);
-    }
-
+    .frame img { width: 100%; height: auto; display: block; border-radius: 18px; background: rgba(255,255,255,.02); }
     .frame.tall { max-width: 340px; border-radius: 36px; }
     .frame.tall img { border-radius: 28px; }
-
-    .frame.wide { max-width: 560px; }
-
-.small-help{
-  width: 420px;        /* <- esto es lo que encoge */
-  max-width: 100%;     /* <- para que en móvil no se rompa */
-  margin: 0 auto;
-  justify-self: center; /* <- por si el grid te lo estira */
-  box-shadow: 0 30px 60px rgba(0,0,0,.55);
-}
-
-.frame.wide img { border-radius: 16px; }
-
 
     .collage {
       width: 100%;
@@ -429,7 +389,6 @@
       text-align: center;
     }
 
-    /* CTA band */
     .cta { text-align: center; padding: 7rem 2rem; }
     .cta .box {
       max-width: 950px; margin: 0 auto;
@@ -443,7 +402,6 @@
     .cta p { color: var(--color-text-muted); font-size: 1.1rem; max-width: 720px; margin: 0 auto 1.75rem; }
     .cta .actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-    /* FAQ */
     .faq { max-width: 900px; margin: 0 auto; display: grid; gap: 1rem; }
     .faq-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; }
     .faq-q {
@@ -456,19 +414,13 @@
     }
     .faq-q:hover { background: var(--color-surface-light); }
     .faq-icon { color: var(--color-primary); font-size: 1.4rem; transition: transform .2s ease; }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height .25s ease, padding .25s ease;
-      padding: 0 1.25rem;
-    }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .25s ease, padding .25s ease; padding: 0 1.25rem; }
     .faq-item.active .faq-a { max-height: 600px; padding: 0 1.25rem 1.25rem; }
     .faq-item.active .faq-icon { transform: rotate(45deg); }
     .faq-a p { color: var(--color-text-muted); }
 
-    /* Contact */
-    #contacto { background: var(--color-surface); border-top: 1px solid var(--color-border); }
+    #contact { background: var(--color-surface); border-top: 1px solid var(--color-border); }
     .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .contact h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: .75rem; }
     .links { display: grid; gap: .75rem; margin-top: 1.25rem; }
     .link {
       display: flex; align-items: center; gap: .9rem;
@@ -480,7 +432,11 @@
       transition: border-color .2s ease, transform .2s ease;
     }
     .link:hover { border-color: rgba(163, 230, 53, 0.55); transform: translateY(-1px); }
-    .link .licon { width: 40px; height: 40px; border-radius: 12px; background: var(--color-surface-light); display: grid; place-items: center; }
+    .link .licon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--color-surface-light);
+      display: grid; place-items: center;
+    }
     form {
       display: grid; gap: .9rem;
       background: rgba(0,0,0,.12);
@@ -502,7 +458,6 @@
     input:focus, textarea:focus { border-color: rgba(163, 230, 53, 0.65); }
     textarea { min-height: 120px; resize: vertical; }
 
-    /* Footer */
     footer { background: var(--color-bg); padding: 3rem 2rem; border-top: 1px solid var(--color-border); }
     .footer {
       max-width: 1200px; margin: 0 auto;
@@ -512,9 +467,7 @@
     .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .footer-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 650; font-size: .95rem; }
     .footer-links a:hover { color: var(--color-primary); }
-    .copyright { color: var(--color-text-muted); font-size: .9rem; }
 
-    /* Responsive */
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-actions { justify-content: center; }
@@ -525,8 +478,6 @@
       .story.reverse .story-media { order: 1; }
       .story.reverse .story-copy { order: 2; }
       .contact { grid-template-columns: 1fr; }
-      .frame.tall { max-width: 380px; }
-      .frame.wide { max-width: 720px; }
     }
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
@@ -544,374 +495,361 @@
 
   <!-- Mobile drawer -->
   <div class="drawer" id="drawer" aria-hidden="true">
-    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="drawer-top">
-        <a href="#" class="logo" onclick="closeDrawer();">
+        <a href="#top" class="logo" onclick="closeDrawer();">
           <img src="https://useglia.app/logo-glia.png" alt="Glia Logo" width="40" height="40" onerror="this.style.display='none'">
           <span>Glia</span>
         </a>
-        <button class="drawer-close" type="button" onclick="closeDrawer();" aria-label="Cerrar">✕</button>
+        <button class="drawer-close" type="button" onclick="closeDrawer();" aria-label="Close">✕</button>
       </div>
       <ul class="drawer-links">
-        <li><a href="#dolor" onclick="closeDrawer();">¿Te suena?</a></li>
-        <li><a href="#alivio" onclick="closeDrawer();">El alivio</a></li>
-        <li><a href="#historia" onclick="closeDrawer();">Una tarde con Glia</a></li>
-        <li><a href="origen.html">El Origen</a></li>
-        <li><a href="docentes.html">Docentes y Centros</a></li>
+        <li><a href="#pain" onclick="closeDrawer();">Does this sound familiar?</a></li>
+        <li><a href="#relief" onclick="closeDrawer();">Relief</a></li>
+        <li><a href="#story" onclick="closeDrawer();">A study session with Glia</a></li>
+        <li><a href="origen-en.html" onclick="closeDrawer();">The Origin</a></li>
+        <li><a href="docentes-en.html" onclick="closeDrawer();">Teachers &amp; Schools</a></li>
         <li><a href="#faq" onclick="closeDrawer();">FAQ</a></li>
-        <li><a href="#contacto" onclick="closeDrawer();">Pedir acceso</a></li>
+        <li><a href="#contact" onclick="closeDrawer();">Request access</a></li>
       </ul>
       <div class="drawer-cta">
-        <a class="btn-primary" href="https://useglia.app" target="_blank" rel="noopener noreferrer">🚀 Quiero probarlo</a>
-        <a class="btn-secondary" href="#contacto" onclick="closeDrawer();">📋 Pedir demo</a>
+        <a class="btn-primary" href="https://useglia.app" target="_blank" rel="noopener noreferrer">🚀 Try Glia</a>
+        <a class="btn-secondary" href="#contact" onclick="closeDrawer();">📋 Request demo</a>
       </div>
     </div>
   </div>
 
-  <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="#" class="logo" aria-label="Ir al inicio">
+      <a href="#top" class="logo" aria-label="Go to start">
         <img src="https://useglia.app/logo-glia.png" alt="Glia Logo" width="40" height="40" onerror="this.style.display='none'">
         <span>Glia</span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#dolor">¿Te suena?</a></li>
-        <li><a href="#alivio">Alivio</a></li>
-        <li><a href="#historia">Historia</a></li>
-        <li><a href="origen.html">El Origen</a></li>
-        <li><a href="docentes.html">Docentes</a></li>
-        <li><a href="#contacto">Pedir acceso</a></li>
+        <li><a href="#pain">Does this sound familiar?</a></li>
+        <li><a href="#relief">Relief</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="origen-en.html">The Origin</a></li>
+        <li><a href="docentes-en.html">Teachers</a></li>
+        <li><a href="#contact">Request access</a></li>
       </ul>
 
       <div style="display:flex; gap:.75rem; align-items:center;">
         <a href="index.html" style="font-size:.85rem; color:var(--color-text-muted); text-decoration:none; border:1px solid var(--color-border); padding:.15rem .5rem; border-radius:999px;">ES</a>
         <a href="index-en.html" style="font-size:.85rem; color:var(--color-text-muted); text-decoration:none; border:1px solid var(--color-border); padding:.15rem .5rem; border-radius:999px;">EN</a>
-        <a href="https://useglia.app" class="nav-cta" target="_blank" rel="noopener noreferrer">Quiero probarlo</a>
+        <a href="https://useglia.app" class="nav-cta" target="_blank" rel="noopener noreferrer">Try Glia</a>
       </div>
 
-      <button class="mobile-menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
     </div>
   </nav>
 
-  <!-- HERO (dolor+alivio en la misma primera pantalla) -->
-  <section class="hero" id="inicio">
+  <section class="hero" id="top">
     <div class="hero-grid">
       <div>
-        <div class="tag">🧠 Para cuando tu cabeza ya no puede más</div>
-        <h1>Por fin, <span class="highlight">deberes sin bloqueo</span></h1>
+        <div class="tag">🧠 For when your brain is already done</div>
+        <h1>Finally, <span class="highlight">homework without shutdown</span></h1>
         <p class="lead">
-          Hay días en los que no es pereza. No es falta de ganas. Es <strong>saturación</strong>.
-          Glia convierte deberes reales (PDF/foto/cuaderno) en <strong>pasos pequeños</strong> para que puedas empezar sin colapsar.
+          Some days it’s not laziness. It’s not lack of will. It’s <strong>overload</strong>.
+          Glia turns real homework (PDF/photo/notebook) into <strong>small steps</strong> so you can start without melting down.
         </p>
 
         <div class="hero-emotion" role="list">
           <div class="emotion-line" role="listitem">
             <div class="dot" aria-hidden="true"></div>
-            <div><strong>Dolor:</strong> “Sé que tengo que hacerlo, pero no puedo empezar.”</div>
+            <div><strong>Pain:</strong> “I know I have to do it, but I just can’t start.”</div>
           </div>
           <div class="emotion-line" role="listitem">
             <div class="dot" aria-hidden="true"></div>
-            <div><strong>Dolor:</strong> “No lo entiendo y me da vergüenza preguntar otra vez.”</div>
+            <div><strong>Pain:</strong> “I don’t get it and I’m embarrassed to ask again.”</div>
           </div>
           <div class="emotion-line" role="listitem">
             <div class="dot" aria-hidden="true"></div>
-            <div><strong>Alivio:</strong> “Ok. Un primer paso. Solo uno.”</div>
+            <div><strong>Relief:</strong> “Ok. One first step. Just one.”</div>
           </div>
         </div>
 
         <div class="hero-actions">
-          <a href="https://useglia.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Quiero probarlo</a>
-          <a href="#historia" class="btn-secondary">▶️ Enséñamelo en 1 minuto</a>
+          <a href="https://useglia.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Try Glia</a>
+          <a href="#story" class="btn-secondary">▶️ Show me in 1 minute</a>
         </div>
 
         <div class="hero-meta">
-          <span class="pill">📄 PDF/foto → pasos</span>
-          <span class="pill">⚡ Ritmo por energía</span>
-          <span class="pill">♿ Accesible</span>
+          <span class="pill">📄 PDF/photo → steps</span>
+          <span class="pill">⚡ Energy-based pacing</span>
+          <span class="pill">♿ Accessible</span>
         </div>
       </div>
 
-      <div class="mockup" aria-label="Vista previa de la app">
+      <div class="mockup" aria-label="App preview">
         <div class="phone">
-          <img src="agenda.png" alt="Agenda con tareas priorizadas" width="400" height="800" onerror="this.src='agenda2.png'; this.onerror=null;" />
+          <img src="agenda.png" alt="Agenda with prioritised tasks" width="400" height="800" onerror="this.src='agenda2.png'; this.onerror=null;" />
         </div>
-        <div class="badge b1"><span aria-hidden="true">🧩</span> Pasos claros</div>
-        <div class="badge b2"><span aria-hidden="true">🫶</span> Menos presión</div>
-        <div class="badge b3"><span aria-hidden="true">⚡</span> A tu ritmo</div>
+        <div class="badge b1"><span aria-hidden="true">🧩</span> Clear steps</div>
+        <div class="badge b2"><span aria-hidden="true">🫶</span> Less pressure</div>
+        <div class="badge b3"><span aria-hidden="true">⚡</span> Your pace</div>
       </div>
     </div>
   </section>
 
-  <!-- DOLOR -->
-  <section id="dolor">
+  <section id="pain">
     <div class="container">
       <div class="section-header">
-        <span class="tag">¿Te suena?</span>
-        <h2>Cuando la tarde se convierte en una batalla</h2>
-        <p class="muted">Y encima te sientes mal por sentirte así.</p>
+        <span class="tag">Does this sound familiar?</span>
+        <h2>When an afternoon turns into a battle</h2>
+        <p class="muted">And on top of that, you feel bad for feeling this way.</p>
       </div>
 
       <div class="grid-3">
         <div class="card">
           <div class="icon">😵</div>
-          <h3>La hoja da miedo</h3>
-          <p>Ves el ejercicio y tu mente se queda en blanco. No sabes por dónde empezar. Y cuanto más lo miras, peor.</p>
+          <h3>The page is scary</h3>
+          <p>You look at the exercise and your mind goes blank. You don’t know where to start. The longer you stare, the worse it feels.</p>
         </div>
         <div class="card">
           <div class="icon">⏳</div>
-          <h3>“Solo son 20 minutos”…</h3>
-          <p>Pero pasan 60 y sigues bloqueado. Te culpas, te frustras y al final lo haces a la carrera (o no lo haces).</p>
+          <h3>“It’s only 20 minutes”...</h3>
+          <p>But 60 minutes go by and you’re still stuck. You blame yourself, get frustrated and end up rushing it (or not doing it at all).</p>
         </div>
         <div class="card">
           <div class="icon">💥</div>
-          <h3>Casa = tensión</h3>
-          <p>Familia intentando ayudar sin saber cómo. Discusiones. Lágrimas. Y nadie entiende por qué es tan difícil.</p>
+          <h3>Home = tension</h3>
+          <p>Family trying to help without the right tools. Arguments. Tears. And no one really understands why it’s so hard.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ALIVIO -->
-  <section id="alivio">
+  <section id="relief">
     <div class="container">
       <div class="section-header">
-        <span class="tag">El alivio</span>
-        <h2>Glia no te empuja. Te sostiene.</h2>
-        <p class="muted">No te exige “más fuerza”. Te da estructura cuando te falta energía.</p>
+        <span class="tag">Relief</span>
+        <h2>Glia doesn’t push you. It holds you.</h2>
+        <p class="muted">It doesn’t ask for “more willpower”. It gives you structure when you’re out of energy.</p>
       </div>
 
       <div class="relief">
         <div class="muted">
-          <strong style="color:white;">La idea es simple:</strong> si el problema es “no puedo empezar”, entonces el objetivo no es “acabar”.
-          El objetivo es <strong style="color:white;">dar el primer paso</strong>.
+          <strong style="color:white;">The idea is simple:</strong> if the problem is “I can’t start”, then the goal is not “finish”.
+          The goal is to <strong style="color:white;">take the first step</strong>.
         </div>
         <div class="relief-list">
-          <div class="relief-item"><div class="tick">✓</div><div>Convierte “haz esto” en <strong style="color:white;">pasos pequeños</strong> que no asustan.</div></div>
-          <div class="relief-item"><div class="tick">✓</div><div>Si no entiendes algo, te guía con <strong style="color:white;">ayuda escalonada</strong> (sin juicio).</div></div>
-          <div class="relief-item"><div class="tick">✓</div><div>Te ayuda a escoger tareas según <strong style="color:white;">tu energía real</strong>, no tu energía ideal.</div></div>
-          <div class="relief-item"><div class="tick">✓</div><div>Incluye accesibilidad (por ejemplo <strong style="color:white;">OpenDyslexic</strong>) para reducir fricción.</div></div>
+          <div class="relief-item"><div class="tick">✓</div><div>Turns “do this” into <strong style="color:white;">small steps</strong> that don’t feel overwhelming.</div></div>
+          <div class="relief-item"><div class="tick">✓</div><div>If something doesn’t make sense, it guides you with <strong style="color:white;">scaffolded help</strong> (no judgement).</div></div>
+          <div class="relief-item"><div class="tick">✓</div><div>Helps you choose tasks based on your <strong style="color:white;">real energy</strong>, not the “ideal you”.</div></div>
+          <div class="relief-item"><div class="tick">✓</div><div>Includes accessibility (for example <strong style="color:white;">OpenDyslexic</strong>) to reduce friction.</div></div>
         </div>
 
         <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:.25rem;">
-          <a href="https://useglia.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Quiero sentir eso</a>
-          <a href="#contacto" class="btn-secondary">📋 Pedir acceso</a>
+          <a href="https://useglia.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 I want to feel that</a>
+          <a href="#contact" class="btn-secondary">📋 Request access</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HISTORIA / ESCENAS (aquí arreglamos lo de imágenes iguales) -->
-  <section id="historia">
+  <section id="story">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Una tarde con Glia</span>
-        <h2>De “no puedo” a “vale… ya estoy”</h2>
-        <p class="muted">No es magia. Es diseño para cuando el cerebro está saturado.</p>
+        <span class="tag">A study session with Glia</span>
+        <h2>From “I can’t” to “ok… I’m on it”</h2>
+        <p class="muted">It’s not magic. It’s design for when your brain is overloaded.</p>
       </div>
 
-      <!-- Scene 1: Collage (diferente composición) -->
       <div class="story">
         <div class="story-copy">
-          <h3>1) “Tengo un PDF… y cero ganas”</h3>
+          <h3>1) “I have a PDF… and zero motivation”</h3>
           <p>
-            No empiezas porque el material abruma. Con Glia, subes el PDF o una foto.
-            Y la app lo convierte en algo que se puede mirar sin entrar en pánico: opciones claras.
+            You don’t start because the material is overwhelming. With Glia, you upload the PDF or a photo.
+            The app turns it into something you can actually look at: clear options.
           </p>
           <div class="chip-row">
-            <span class="chip">📥 Importar PDF / foto</span>
-            <span class="chip">🧠 Menos fricción</span>
-            <span class="chip">🧩 Empieza por lo pequeño</span>
+            <span class="chip">📥 Import PDF / photo</span>
+            <span class="chip">🧠 Less friction</span>
+            <span class="chip">🧩 Start with something small</span>
           </div>
         </div>
         <div class="story-media">
           <div class="collage">
             <div class="mini">
-              <img src="importar-ejercicios.png" alt="Importar ejercicios desde PDF o imagen" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
+              <img src="importar-ejercicios.png" alt="Importing exercises from PDF or image" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
             </div>
             <div class="mini">
-              <img src="descomposicion-tareas.png" alt="Descubrir contenidos y temas" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
+              <img src="descomposicion-tareas.png" alt="Breaking tasks into smaller pieces" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
             </div>
           </div>
-          <div class="caption">Importas → eliges → listo. Sin copiar/pegar deberes.</div>
+          <div class="caption">Import → choose → done. No more copy/paste of exercises.</div>
         </div>
       </div>
 
-      <!-- Scene 2: Tall phone (vertical protagonista) -->
       <div class="story reverse">
         <div class="story-copy">
-          <h3>2) “Vale, ¿qué hago primero?”</h3>
+          <h3>2) “Ok, what do I do first?”</h3>
           <p>
-            Aquí es donde normalmente se rompe todo. Glia te muestra una agenda clara y te ayuda a priorizar sin culpabilizar.
-            No te pide “hazlo todo”. Te pide “elige uno”.
+            This is where things usually break. Glia shows you a clear agenda and helps you prioritise without guilt.
+            It doesn’t say “do everything”. It says “pick one”.
           </p>
           <div class="chip-row">
-            <span class="chip">📅 Agenda clara</span>
-            <span class="chip">🎯 Prioridad</span>
-            <span class="chip">🫶 Menos pelea en casa</span>
+            <span class="chip">📅 Clear agenda</span>
+            <span class="chip">🎯 Priority</span>
+            <span class="chip">🫶 Less fighting at home</span>
           </div>
         </div>
         <div class="story-media">
           <div class="frame tall">
-            <img src="agenda.png" alt="Agenda con tareas prioritarias" width="400" height="800" loading="lazy" onerror="this.src='agenda2.png'; this.onerror=null;" />
+            <img src="agenda.png" alt="Agenda with prioritised tasks" width="400" height="800" loading="lazy" onerror="this.src='agenda2.png'; this.onerror=null;" />
           </div>
-          <div class="caption">Ver tareas así ya baja el ruido mental.</div>
+          <div class="caption">Seeing tasks like this already lowers the noise.</div>
         </div>
       </div>
 
-      <!-- Scene 3: Wide + micro-copy (layout ancho) -->
       <div class="story">
         <div class="story-copy">
-          <h3>3) “No lo entiendo” (sin vergüenza)</h3>
+          <h3>3) “I still don’t get it” (without shame)</h3>
           <p>
-            No te suelta una respuesta fría. Te acompaña por niveles: primero lo básico, luego lo importante,
-            y después lo que necesitas para avanzar. La sensación cambia: de bloqueo → dirección.
+            It doesn’t just spit out an answer. It walks you through levels: first the basics, then what matters,
+            then what you need to move forward. The feeling changes: from “stuck” → “I know what to do”.
           </p>
           <div class="chip-row">
-            <span class="chip">🧠 Ayuda escalonada</span>
-            <span class="chip">🗣️ Explicación simple</span>
-            <span class="chip">✅ Avance real</span>
-          </div>
-        </div>
-         <div class="story-media">
-          <div class="collage">
-            <div class="mini">
-              <img src="ayuda-tareas.png" alt="Soporte IA con explicación escalonada" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
-            </div>
-            <div class="mini">
-              <img src="voz-IA.png" alt="Soporte IA conversacional sobre las tareas, no da el resultado consigue que lo hagas tu" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
-            </div>
-            <div class="caption">“Todavía no lo entiendo” → la ayuda se adapta, no te juzga.</div>
-        </div>
-          </div>
-
-
-      <!-- Scene 4: Collage (pasos + decisión mágica) -->
-      <div class="story reverse">
-        <div class="story-copy">
-          <h3>4) Cuando elegir cansa… Glia elige contigo</h3>
-          <p>
-            La “decisión mágica” existe para un día concreto: ese en el que todo cuesta.
-            Te propone una acción posible. No perfecta. Posible.
-          </p>
-          <div class="chip-row">
-            <span class="chip">🪄 Decisión Mágica</span>
-            <span class="chip">🧩 Pasos ejecutables</span>
-            <span class="chip">⚡ Energía real</span>
+            <span class="chip">🧠 Scaffolded help</span>
+            <span class="chip">🗣️ Simple explanations</span>
+            <span class="chip">✅ Real progress</span>
           </div>
         </div>
         <div class="story-media">
-          
+          <div class="collage">
             <div class="mini">
-              <img src="decision-magica.png" alt="Decisión mágica: empieza con una acción" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
+              <img src="ayuda-tareas.png" alt="Step-by-step AI help" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
             </div>
-          
-          <div class="caption">La clave no es hacerlo perfecto. Es empezar.</div>
+            <div class="mini">
+              <img src="voz-IA.png" alt="Voice AI support that helps you, not gives you the result" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
+            </div>
+            <div class="caption">“I still don’t get it” → the help adapts, it doesn’t judge you.</div>
+          </div>
         </div>
       </div>
 
-      <!-- Scene 5: Tall + accesibilidad/bienestar -->
+      <div class="story reverse">
+        <div class="story-copy">
+          <h3>4) When choosing is too much… Glia chooses with you</h3>
+          <p>
+            “Magic decision” exists for <em>one specific day</em>: the day when everything feels like too much.
+            It proposes one doable action. Not perfect. Possible.
+          </p>
+          <div class="chip-row">
+            <span class="chip">🪄 Magic Decision</span>
+            <span class="chip">🧩 Executable steps</span>
+            <span class="chip">⚡ Real energy</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="mini">
+            <img src="decision-magica.png" alt="Magic decision: start with one action" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
+          </div>
+          <div class="caption">The goal is not perfection. The goal is to start.</div>
+        </div>
+      </div>
+
       <div class="story">
         <div class="story-copy">
-          <h3>Y si hoy no se puede… también cuenta</h3>
+          <h3>And if today you really can’t… that still counts</h3>
           <p>
-            Glia no es “productividad tóxica”. Tiene accesibilidad y bienestar porque aprender también es regularse.
-            Si estás saturado, lo registras, respiras y vuelves cuando puedas.
+            Glia is not “toxic productivity”. It includes accessibility and wellbeing because learning also means self‑regulation.
+            If you’re in crisis, you log it, breathe, and come back when you can.
           </p>
           <div class="chip-row">
             <span class="chip">♿ OpenDyslexic</span>
-            <span class="chip">🧘 Bienestar</span>
-            <span class="chip">❤️ Menos culpa</span>
+            <span class="chip">🧘 Wellbeing</span>
+            <span class="chip">❤️ Less guilt</span>
           </div>
         </div>
         <div class="story-media">
           <div class="collage">
             <div class="mini">
-              <img src="Panic-IA.png" alt="Configuración con OpenDyslexic" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
+              <img src="Panic-IA.png" alt="Panic mode and regulation tools" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
             </div>
             <div class="mini">
-              <img src="historial-crisis.png" alt="Seguimiento de bienestar" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
+              <img src="historial-crisis.png" alt="Crisis history and recovery tracking" width="360" height="640" loading="lazy" onerror="this.style.display='none';" />
             </div>
           </div>
-          <div class="caption">No eres un robot. Estudiar también es cuidarte.</div>
+          <div class="caption">You’re not a robot. Studying is also about taking care of yourself.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA (emocional) -->
   <section class="cta" id="cta">
     <div class="box">
-      <h2>Que estudiar no te rompa</h2>
+      <h2>Studying shouldn’t break you</h2>
       <p>
-        Si tu reacción al ver deberes es “me bloqueo”, Glia está hecha para ti.
-        No te promete milagros. Te promete algo mejor: <strong>un primer paso</strong>.
+        If your reaction when you see homework is “I shut down”, Glia is built for you.
+        It doesn’t promise miracles. It promises something better: <strong>a first step</strong>.
       </p>
       <div class="actions">
-        <a href="https://useglia.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Quiero probarlo</a>
-        <a href="#contacto" class="btn-secondary">📋 Pedir acceso</a>
+        <a href="https://useglia.app" class="btn-primary" target="_blank" rel="noopener noreferrer">🚀 Try Glia</a>
+        <a href="#contact" class="btn-secondary">📋 Request access</a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (más emocional y de confianza) -->
   <section id="faq">
     <div class="container">
       <div class="section-header">
         <span class="tag">FAQ</span>
-        <h2>Lo que la gente pregunta de verdad</h2>
-        <p class="muted">Sin humo. Sin promesas imposibles.</p>
+        <h2>What people really ask</h2>
+        <p class="muted">No hype. No impossible promises.</p>
       </div>
 
       <div class="faq">
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Glia hace los deberes por mí?
+            Does Glia do my homework for me?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              No. Glia te ayuda a <strong>entender y avanzar</strong>: divide la tarea en pasos, te guía y te sostiene cuando te bloqueas.
-              La idea es que ganes autonomía, no que copies respuestas.
+              No. Glia helps you <strong>understand and move forward</strong>: it breaks tasks into steps, guides you and holds you when you’re stuck.
+              The goal is autonomy, not copying answers.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Y si tengo TDAH / TEA / dislexia / ansiedad?
+            What if I have ADHD / autism / dyslexia / anxiety?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              Glia está pensada para cuando hay <strong>sobrecarga cognitiva</strong>. Incluye accesibilidad (como OpenDyslexic) y funciones para ritmo/energía.
-              Y si un día no puedes, no te castiga: te ayuda a volver.
+              Glia is designed for <strong>cognitive overload</strong>. It includes accessibility (like OpenDyslexic) and tools for pacing and energy.
+              And if one day you can’t, it doesn’t punish you: it helps you come back.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Se puede usar sin que la familia esté encima?
+            Can I use it without my family watching me all the time?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              Esa es una de las metas: que el alumno tenga estructura para avanzar solo, y que la familia pueda apoyar sin convertirse en “policía de deberes”.
+              That’s one of the goals: to give you enough structure to move forward on your own, and let your family support you
+              without becoming “homework police”.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button">
-            ¿Qué pasa con mis datos?
+            What happens with my data?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">
             <p>
-              Glia está diseñada para contextos sensibles. Si quieres, te cuento exactamente qué se guarda y qué no (y cómo se protege).
-              Transparencia antes que marketing.
+              Glia is built for sensitive contexts. If you want, we can tell you exactly what is stored and what isn’t (and how it’s protected).
+              Transparency before marketing.
             </p>
           </div>
         </div>
@@ -919,14 +857,13 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contacto">
+  <section id="contact">
     <div class="container">
       <div class="contact">
         <div>
-          <h3>¿Quieres acceso / demo?</h3>
+          <h3>Want access / a demo?</h3>
           <p class="muted">
-            Si eres familia, docente o alumno/a y te apetece probarlo con un caso real, escríbeme. Busco feedback honesto.
+            If you’re a family, teacher or student and you’d like to try Glia with a real case, write to me. I’m looking for honest feedback.
           </p>
 
           <div class="links">
@@ -936,57 +873,53 @@
             </a>
             <a class="link" href="https://useglia.app" target="_blank" rel="noopener noreferrer">
               <span class="licon" aria-hidden="true">🧪</span>
-              <span><strong>Probar Glia</strong><br><span class="muted">Acceder a la demo</span></span>
+              <span><strong>Try Glia</strong><br><span class="muted">Open the demo</span></span>
             </a>
           </div>
         </div>
 
         <form action="https://formspree.io/f/mvzrrdbv" method="POST">
           <div>
-            <label for="name">Nombre</label>
-            <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
           </div>
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="tu@email.com" required />
+            <input id="email" name="email" type="email" placeholder="you@email.com" required />
           </div>
           <div>
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" placeholder="Cuéntame tu caso (nivel, qué te bloquea, qué te gustaría conseguir…)" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me your situation (level, what blocks you, what you’d like to achieve…)" required></textarea>
           </div>
-          <button type="submit" class="btn-primary">Enviar</button>
+          <button type="submit" class="btn-primary">Send</button>
           <p class="muted" style="font-size:.85rem;">
-            (Este formulario solo muestra un aviso. Si quieres envío real, se conecta a Formspree / Firebase / Netlify Forms.)
+            (This form currently shows a demo notice. For live sending it connects to Formspree / Firebase / Netlify Forms.)
           </p>
-          <input type="hidden" name="_subject" value="Nuevo mensaje desde Glia (landing)" />
+          <input type="hidden" name="_subject" value="New message from Glia (EN landing)" />
           <input type="hidden" name="_replyto" value="%email%" />
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer">
-      <a href="#inicio" class="logo">
+      <a href="#top" class="logo">
         <span>Glia</span>
       </a>
       <div class="footer-links">
-        <a href="#dolor">¿Te suena?</a>
-        <a href="#historia">Historia</a>
-        <a href="origen.html">El Origen</a>
-        <a href="docentes.html">Docentes</a>
+        <a href="#pain">Does this sound familiar?</a>
+        <a href="#story">Story</a>
+        <a href="origen-en.html">The Origin</a>
+        <a href="docentes-en.html">Teachers &amp; Schools</a>
         <a href="#faq">FAQ</a>
-        <a href="#contacto">Contacto</a>
-        <a href="aviso-legal.html">Aviso legal</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="cookies.html">Cookies</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="copyright">© 2026 Glia. Todos los derechos reservados.</div>
+      <div class="lang-switch">
+        <a href="index.html">ES</a> · <a href="index-en.html" class="active">EN</a>
+      </div>
     </div>
   </footer>
-
-  <div id="toast" class="sr-only" aria-live="polite"></div>
 
   <script>
     // Navbar background
@@ -1034,27 +967,9 @@
     menuBtn?.addEventListener('click', openDrawer);
     drawer?.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      if (e.key === 'Escape' && drawer && drawer.classList.contains('open')) closeDrawer();
     });
-
-    // Toast
-    function toast(msg) {
-      const el = document.getElementById('toast');
-      el.className = '';
-      el.style.position = 'fixed';
-      el.style.left = '50%';
-      el.style.bottom = '18px';
-      el.style.transform = 'translateX(-50%)';
-      el.style.background = 'rgba(22,22,29,.95)';
-      el.style.border = '1px solid rgba(255,255,255,.12)';
-      el.style.borderRadius = '14px';
-      el.style.padding = '12px 14px';
-      el.style.color = 'white';
-      el.style.boxShadow = '0 20px 40px rgba(0,0,0,.4)';
-      el.textContent = msg;
-      setTimeout(() => { el.className = 'sr-only'; }, 2200);
-    }
-    window.toast = toast;
   </script>
 </body>
 </html>
+

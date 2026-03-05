@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glia for Teachers and Schools — Less load, more coherence</title>
+  <meta name="description" content="Glia connects classroom and home. Adapts tasks by cognitive profile, monitors wellbeing and respects your school’s pedagogy. Neuroinclusive tool for teachers." />
+  <link rel="icon" type="image/png" href="https://useglia.app/logo-glia.png" />
+
+  <meta property="og:title" content="Glia for Teachers and Schools" />
+  <meta property="og:description" content="Adapt tasks by cognitive profile. Monitor wellbeing. Connect classroom and home without multiplying your workload." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://useglia.app/logo-glia.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --color-bg: #0a0a0f;
+      --color-surface: #16161d;
+      --color-surface-light: #1e1e28;
+      --color-primary: #a3e635;
+      --color-primary-dark: #84cc16;
+      --color-accent: #a78bfa;
+      --color-accent-light: #c4b5fd;
+      --color-text: #ffffff;
+      --color-text-muted: #9ca3af;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --shadow-lg: 0 50px 100px rgba(0, 0, 0, 0.5);
+      --shadow-md: 0 20px 50px rgba(0, 0, 0, 0.45);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+
+    .gradient-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+    .gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(167, 139, 250, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(163, 230, 53, 0.06) 0%, transparent 50%);
+      animation: gradientMove 22s ease-in-out infinite;
+    }
+    @keyframes gradientMove { 0%,100% { transform: translate(0,0) rotate(0deg); } 50% { transform: translate(-4%,-4%) rotate(4deg); } }
+
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; max-width: 780px; margin: 0 auto 4rem; }
+    .tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(167, 139, 250, 0.12);
+      color: var(--color-accent-light);
+      padding: .5rem 1rem;
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 650;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(167, 139, 250, 0.2);
+    }
+    .tag.green {
+      background: rgba(163, 230, 53, 0.1);
+      color: var(--color-primary);
+      border-color: rgba(163, 230, 53, 0.15);
+    }
+    h1, h2 { line-height: 1.1; }
+    .muted { color: var(--color-text-muted); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2rem;
+      background: rgba(10,10,15,0.85);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .nav-container {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .logo img { width: 36px; height: 36px; border-radius: 10px; }
+    .logo span {
+      font-size: 1.4rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 600; transition: color .2s; font-size: .95rem; }
+    .nav-links a:hover { color: var(--color-primary); }
+    .nav-back {
+      color: var(--color-text-muted); text-decoration: none; font-weight: 600;
+      display: flex; align-items: center; gap: .4rem; transition: color .2s; font-size: .95rem;
+    }
+    .nav-back:hover { color: var(--color-primary); }
+
+    .btn-primary, .btn-secondary {
+      border-radius: 999px; padding: 1rem 1.5rem; text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+      transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
+      font-weight: 800; border: 1px solid transparent; cursor: pointer; font-size: 1rem;
+    }
+    .btn-primary { background: var(--color-primary); color: var(--color-bg); }
+    .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 15px 40px rgba(163, 230, 53, 0.25); }
+    .btn-secondary { background: var(--color-surface); color: var(--color-text); border-color: var(--color-border); font-weight: 700; }
+    .btn-secondary:hover { background: var(--color-surface-light); border-color: rgba(167, 139, 250, 0.5); }
+
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 8rem 2rem 5rem; text-align: center;
+    }
+    .hero-inner { max-width: 820px; margin: 0 auto; }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 950;
+      margin-bottom: 1.5rem; letter-spacing: -0.02em;
+    }
+    .highlight {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero .lead {
+      font-size: 1.2rem; color: var(--color-text-muted);
+      max-width: 640px; margin: 0 auto 2rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .hero-pills { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+    .pill {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .5rem .85rem; border: 1px solid var(--color-border);
+      border-radius: 999px; background: rgba(255,255,255,.02);
+      font-size: .9rem; color: var(--color-text-muted);
+    }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: 2rem;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(167, 139, 250, 0.5); box-shadow: 0 20px 40px rgba(167, 139, 250, 0.08); }
+    .icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: grid; place-items: center; font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--color-accent), rgba(163, 230, 53, 0.6));
+      color: var(--color-bg); margin-bottom: 1.25rem; font-weight: 900;
+    }
+
+    #flow { background: linear-gradient(180deg, transparent 0%, rgba(163, 230, 53, 0.035) 50%, transparent 100%); }
+    .flow { max-width: 780px; margin: 0 auto; display: grid; gap: 1.25rem; }
+    .step {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: 20px; padding: 1.5rem 1.75rem;
+      transition: transform .2s, border-color .2s;
+    }
+    .step:hover { border-color: var(--color-primary); transform: translateX(8px); }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      display: grid; place-items: center;
+      font-size: 1.15rem; font-weight: 900; color: var(--color-bg); flex-shrink: 0;
+    }
+
+    .story {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2.5rem; align-items: center; margin-bottom: 3rem;
+    }
+    .story.reverse .story-media { order: 2; }
+    .story.reverse .story-copy { order: 1; }
+    .story-copy h3 { font-size: 1.55rem; font-weight: 950; margin-bottom: .6rem; }
+    .story-copy p { color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.7; }
+    .chip-row { margin-top: .9rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+    .chip {
+      border: 1px solid var(--color-border); background: rgba(255,255,255,.02);
+      border-radius: 999px; padding: .45rem .75rem;
+      font-size: .85rem; font-weight: 700; color: var(--color-text-muted);
+    }
+    .story-media { display: grid; gap: 1rem; justify-items: center; }
+    .frame {
+      width: 100%; max-width: 380px;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: 30px; padding: 10px;
+      box-shadow: var(--shadow-md);
+    }
+    .frame img { width: 100%; height: auto; display: block; border-radius: 22px; }
+    .caption { font-size: .9rem; color: var(--color-text-muted); text-align: center; }
+
+    #trust { background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.04) 50%, transparent 100%); }
+    .trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .trust-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: 20px; padding: 1.5rem 1.75rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: border-color .2s;
+    }
+    .trust-card:hover { border-color: rgba(167, 139, 250, 0.4); }
+    .trust-icon { font-size: 1.75rem; flex-shrink: 0; margin-top: .15rem; }
+
+    .centro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .centro-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: 20px; padding: 1.75rem;
+      transition: transform .2s, border-color .2s;
+    }
+    .centro-card:hover { transform: translateY(-3px); border-color: var(--color-accent); }
+    .centro-tag {
+      display: inline-block; font-size: .75rem; font-weight: 700;
+      background: rgba(167, 139, 250, 0.15); color: var(--color-accent-light);
+      padding: .25rem .6rem; border-radius: 999px; margin-bottom: .75rem;
+    }
+
+    .cta { text-align: center; padding: 7rem 2rem; }
+    .cta .box {
+      max-width: 900px; margin: 0 auto;
+      border: 1px solid var(--color-border); border-radius: 28px;
+      padding: 3rem 2rem; background: rgba(255,255,255,.03);
+      box-shadow: 0 30px 70px rgba(0,0,0,.35);
+    }
+
+    #contact { background: var(--color-surface); border-top: 1px solid var(--color-border); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+    .contact-info h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: .75rem; }
+    form {
+      display: grid; gap: .9rem;
+      background: rgba(0,0,0,.12); border: 1px solid var(--color-border);
+      border-radius: 18px; padding: 1.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+    label { font-size: .9rem; font-weight: 650; color: var(--color-text-muted); }
+    input, select, textarea {
+      width: 100%; background: var(--color-bg);
+      border: 1px solid var(--color-border); border-radius: 12px;
+      padding: .9rem 1rem; color: var(--color-text);
+      font: inherit; outline: none; font-size: .95rem;
+    }
+    select { cursor: pointer; }
+    textarea { min-height: 100px; resize: vertical; }
+
+    footer {
+      background: var(--color-bg); padding: 2.5rem 2rem;
+      border-top: 1px solid var(--color-border); text-align: center;
+    }
+    footer p { color: var(--color-text-muted); font-size: .85rem; }
+    footer a { color: var(--color-primary); text-decoration: none; }
+
+    .contact-actions { margin-top: 1.5rem; display: grid; gap: .75rem; }
+
+    @media (max-width: 1024px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .story { grid-template-columns: 1fr; }
+      .story.reverse .story-media { order: 1; }
+      .story.reverse .story-copy { order: 2; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .centro-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      section { padding: 4.5rem 1.25rem; }
+      .hero { padding: 7rem 1.25rem 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true"></div>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index-en.html" class="logo">
+        <img src="https://useglia.app/logo-glia.png" alt="Glia" width="36" height="36" onerror="this.style.display='none'">
+        <span>Glia</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#problem">The challenge</a></li>
+        <li><a href="#flow">How it works</a></li>
+        <li><a href="#centre">Schools</a></li>
+        <li><a href="#contact">Request pilot</a></li>
+      </ul>
+      <a href="index-en.html" class="nav-back">&larr; Back to main site</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="tag">👩‍🏫 For teachers and schools</div>
+      <h1>Less load. More coherence. <span class="highlight">Home and classroom connected.</span></h1>
+      <p class="lead">
+        Glia helps you adapt tasks by cognitive profile, monitor your students’ wellbeing
+        and keep coherence with families — without multiplying your work.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Request a pilot</a>
+        <a href="#flow" class="btn-secondary">See how it works</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">📄 PDF/photo → adapted tasks</span>
+        <span class="pill">🧠 4 cognitive profiles</span>
+        <span class="pill">🔒 Real data protection</span>
+        <span class="pill">🌍 5 languages</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">The teacher’s challenge</span>
+        <h2>“Adapted for home” always falls short</h2>
+        <p class="muted">The issue isn’t lack of will. It’s lack of tools.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>Adapting multiplies work</h3>
+          <p>One activity, 25 different minds. There aren’t enough hours in the day to manually personalise every worksheet.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏠</div>
+          <h3>Home is another world</h3>
+          <p>What you work on in class loses coherence at home. Families don’t have the same context or toolkit you have.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🫣</div>
+          <h3>The student doesn’t ask for help</h3>
+          <p>They freeze, stay silent and show up without the homework done. You only find out they were stuck when it’s already too late.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag green">How it works</span>
+        <h2>From your worksheet to adapted steps in 4 clicks</h2>
+        <p class="muted">You bring the material and make the pedagogical decisions. AI adapts. The student executes. You monitor.</p>
+      </div>
+
+      <div class="flow">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Upload the material</h3>
+            <p>PDF, photo of the book or worksheet. AI extracts the exercises with the full wording. No more copy/paste.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Choose class, profile and exercises</h3>
+            <p>Select the class, cognitive profile (ADHD, autistic, stable, mixed) and which exercises to assign. You see in real time how many students will receive the task.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>AI creates adapted steps</h3>
+            <p>Gemini generates subtasks adjusted to each profile: very short for autistic students (4–6), clear for ADHD (3–4), normal for stable (3–5). Socratic method: guidance, not answers.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>You review, edit and send</h3>
+            <p>You see each task and subtask. You can edit, delete or add steps. Only when you approve it is it sent to the students’ agenda as required work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Teacher tools</span>
+        <h2>Your panel. Your control.</h2>
+        <p class="muted">Glia doesn’t replace the teacher. It gives them superpowers.</p>
+      </div>
+
+      <div class="story">
+        <div class="story-copy">
+          <h3>Classroom management</h3>
+          <p>
+            From your panel you access <strong>“My Students”</strong> with crisis monitoring, focus sessions and points,
+            and <strong>“Assign Task”</strong> where AI adapts the activity to each student’s profile.
+          </p>
+          <div class="chip-row">
+            <span class="chip">👥 My Students</span>
+            <span class="chip">📝 Assign Task</span>
+            <span class="chip">📊 Real stats</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="frame">
+            <img src="profesores.png" alt="Teacher panel: My Students and Assign Task" width="720" height="450" loading="lazy" onerror="this.closest('.frame').style.display='none'" />
+          </div>
+          <div class="caption">Teacher‑oriented tools, not rebranded student views.</div>
+        </div>
+      </div>
+
+      <div class="story reverse">
+        <div class="story-copy">
+          <h3>Import from PDF or photo</h3>
+          <p>
+            Upload the real material (worksheet, book page, PDF). AI extracts the exercises
+            and you choose which ones to turn into tasks. No more retyping statements.
+          </p>
+          <div class="chip-row">
+            <span class="chip">📄 PDF or image</span>
+            <span class="chip">🤖 AI extraction</span>
+            <span class="chip">✅ You decide</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="frame">
+            <img src="importar-ejercicios.png" alt="Importing exercises from PDF or image" width="720" height="450" loading="lazy" onerror="this.closest('.frame').style.display='none'" />
+          </div>
+          <div class="caption">From paper to the app in one step.</div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-copy">
+          <h3>Empathic preview</h3>
+          <p>
+            Before sending, you can see exactly how the task will look to a student with an autistic profile,
+            ADHD or typical profile. Because adapting without seeing the result isn’t really adapting.
+          </p>
+          <div class="chip-row">
+            <span class="chip">👁️ Autistic view</span>
+            <span class="chip">👁️ ADHD view</span>
+            <span class="chip">👁️ Typical view</span>
+          </div>
+        </div>
+        <div class="story-media">
+          <div class="frame">
+            <img src="descomposicion-tareas.png" alt="Student wellbeing and task progress" width="720" height="450" loading="lazy" onerror="this.closest('.frame').style.display='none'" />
+          </div>
+          <div class="caption">Visualise what students will actually see and feel.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Principles</span>
+        <h2>What Glia doesn’t do is as important as what it does</h2>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">🧭</div>
+          <div>
+            <h4>AI guides, it doesn’t solve</h4>
+            <p>Socratic method is non‑negotiable. Glia shows <strong>how</strong> to do each step, but never gives the answer. The goal is autonomy, not dependence.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">👩‍🏫</div>
+          <div>
+            <h4>It doesn’t replace the teacher</h4>
+            <p>Glia always defers to a trusted adult or professional when the topic goes beyond cognitive support.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🔒</div>
+          <div>
+            <h4>Real data protection</h4>
+            <p>Teachers only see data from <strong>their</strong> students. Right to erasure implemented. Children’s data isn’t used to retrain models.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">💚</div>
+          <div>
+            <h4>Regulation before execution</h4>
+            <p>If a student is in crisis, the app stops to focus on regulation first. No task is ever forced.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">📉</div>
+          <div>
+            <h4>If it creates dependence, it goes</h4>
+            <p>The metric is that students need <strong>less</strong> Glia over time. More independence, not another layer of control.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🌍</div>
+          <div>
+            <h4>5 languages</h4>
+            <p>Spanish, Catalan, English, Basque and Galician. The full interface, not just a few buttons.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="centre">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag green">For schools</span>
+        <h2>Glia adapts to your Educational Project</h2>
+        <p class="muted">Upload your school project (PEC/PAD) and AI tunes its strategies, tone and content to your identity.</p>
+      </div>
+
+      <div class="centro-grid">
+        <div class="centro-card">
+          <div class="centro-tag">Configuration</div>
+          <h4>Upload your PEC/PAD as PDF</h4>
+          <p>Glia reads the document with AI and automatically extracts methodology, pedagogical tone, diversity protocol and topics to avoid.</p>
+        </div>
+        <div class="centro-card">
+          <div class="centro-tag">Methodologies</div>
+          <h4>Montessori, PBL, Waldorf…</h4>
+          <p>AI adapts its strategies to your methodology: project‑based, competency‑based, traditional or mixed.</p>
+        </div>
+        <div class="centro-card">
+          <div class="centro-tag">Multi‑agent AI</div>
+          <h4>4 specialised agents</h4>
+          <p>Classifier, Strategist, Simplifier and Reviewer work in a chain. The Reviewer checks answers against the school’s principles.</p>
+        </div>
+        <div class="centro-card">
+          <div class="centro-tag">Coherence</div>
+          <h4>Home + classroom = same language</h4>
+          <p>Students and families see the same tasks with the same step‑by‑step structure. Fewer misunderstandings, fewer arguments.</p>
+        </div>
+        <div class="centro-card">
+          <div class="centro-tag">Accessibility</div>
+          <h4>OpenDyslexic and more</h4>
+          <p>High contrast, adjustable educational level (from primary to university) and voice support for students who cannot type.</p>
+        </div>
+        <div class="centro-card">
+          <div class="centro-tag">Security</div>
+          <h4>Only leadership can change the PEC</h4>
+          <p>Strict roles. Encrypted data. Child‑protection protocols. Children’s data is never used to build generic “ed‑tech” models.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="box">
+      <h2>Adapting shouldn’t multiply your workload</h2>
+      <p>
+        If you’d like to try Glia with your class or your school, tell us.
+        We’re looking for real pilots with honest feedback.
+      </p>
+      <div class="actions">
+        <a href="#contact" class="btn-primary">Request a pilot</a>
+        <a href="index-en.html" class="btn-secondary">See the student experience</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>Request access or a pilot</h3>
+          <p class="muted">
+            Tell us who you are and what you need it for. That way we can prioritise real demos and prepare the right experience.
+          </p>
+          <div class="contact-actions">
+            <a class="btn-secondary btn-left" href="mailto:hola@useglia.com">
+              📧 &nbsp; hola@useglia.com
+            </a>
+            <a class="btn-secondary btn-left" href="https://useglia.app" target="_blank" rel="noopener noreferrer">
+              🧪 &nbsp; Try the demo
+            </a>
+          </div>
+        </div>
+
+        <form action="https://formspree.io/f/mvzrrdbv" method="POST">
+          <div class="form-row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@school.edu" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="role">I am...</label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Select</option>
+                <option value="teacher">Teacher</option>
+                <option value="school">School leadership</option>
+                <option value="support">Support staff / SEN / counsellor</option>
+                <option value="family">Parent / carer</option>
+                <option value="professional">Professional (psychology, speech therapy…)</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="stage">Educational stage</label>
+              <select id="stage" name="stage" required>
+                <option value="" disabled selected>Select</option>
+                <option value="primary">Primary</option>
+                <option value="secondary">Lower / upper secondary</option>
+                <option value="vocational">Vocational</option>
+                <option value="university">Higher education</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="goal">What do you want to use it for?</label>
+            <select id="goal" name="goal" required>
+              <option value="" disabled selected>Select</option>
+              <option value="classroom">Classroom use (teacher)</option>
+              <option value="classroom-home">Both: classroom + home</option>
+              <option value="pilot">Whole‑school pilot</option>
+              <option value="assessment">Professional assessment / support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="students">Approx. number of students (optional)</label>
+            <input id="students" name="students" type="text" placeholder="e.g., 25, 120, whole school…" />
+          </div>
+
+          <div>
+            <label for="context">Context (optional, but very helpful)</label>
+            <textarea id="context" name="context" placeholder="Tell us your context: student profiles, what blocks you, what you’d like to achieve…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Send request</button>
+          <input type="hidden" name="_subject" value="Teacher/school request from Glia (EN)" />
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      &copy; 2026 Glia &middot; "Your mind, at your own pace" &middot;
+      <a href="index-en.html">Main site</a> &middot;
+      <a href="origen-en.html">The Origin</a> &middot;
+      <a href="mailto:hola@useglia.com">hola@useglia.com</a>
+    </p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.background = window.scrollY > 50 ? 'rgba(10,10,15,0.95)' : 'rgba(10,10,15,0.85)';
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
+
